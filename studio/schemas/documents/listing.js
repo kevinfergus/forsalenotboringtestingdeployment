@@ -1,8 +1,8 @@
 
 export default {
-  name: 'post',
+  name: 'listing',
   type: 'document',
-  title: 'Blog Post',
+  title: 'Listing',
   fields: [
     {
       name: 'title',
