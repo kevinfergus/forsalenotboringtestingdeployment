@@ -43,7 +43,7 @@ export default createSchema({
 
 export default createSchema({
   // We name our schema
-  name: 'blog',
+  name: 'listing',
   // Then proceed to concatenate our our document type
   // to the ones provided by any plugins that are installed
   types: schemaTypes.concat([
