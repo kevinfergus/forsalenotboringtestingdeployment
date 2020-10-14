@@ -1,7 +1,7 @@
 export default {
-  name: 'listing',
+  name: 'listings',
   type: 'document',
-  title: 'Listing',
+  title: 'Listings',
   fields: [
     {
       name: 'address',
