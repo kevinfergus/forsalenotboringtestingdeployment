@@ -64,5 +64,5 @@
 <img src={urlFor(listing.mainImage)} alt="The alt">
 <h1>{listing.address}</h1>
 
-<h3>{listing.price}</h3>
+<h3>${listing.price}</h3>
 </div>

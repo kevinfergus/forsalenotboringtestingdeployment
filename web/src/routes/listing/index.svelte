@@ -1,5 +1,7 @@
 <script context="module">
   import client from "../../sanityClient";
+  import urlBuilder from "@sanity/image-url";
+  const urlFor = source => urlBuilder(client).image(source)
   export function preload({ params, query }) {
     return client
       .fetch(
@@ -38,6 +40,6 @@
                   tell Sapper to load the data for the page as soon as
                   the user hovers over the link or taps it, instead of
                   waiting for the 'click' event -->
-    <li><a rel='prefetch' href='listing/{listing.slug.current}'>{listing.address}</a> ({formatDate(listing.publishedAt)})</li>
+    <li><a rel='prefetch' href='listing/{listing.slug.current}'>{listing.address}</a> - ${listing.price}</li>
   {/each}
 </ul>
