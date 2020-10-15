@@ -35,6 +35,7 @@
 {#each listings as listing}
 <img src={urlFor(listing.mainImage)}
 />  
+<ul>
 {#each listings as listing}
     <!-- we're using the non-standard `rel=prefetch` attribute to
                   tell Sapper to load the data for the page as soon as
