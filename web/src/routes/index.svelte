@@ -1,6 +1,7 @@
 <script context="module">
   import client from "../sanityClient";
   import urlBuilder from "@sanity/image-url";
+  import Image from "svelte-image";
   import Carousel from "@beyonk/svelte-carousel";
   const urlFor = (source) => urlBuilder(client).image(source);
   export function preload({ params, query }) {
@@ -28,6 +29,9 @@
     margin: 0 0 1em 0;
     line-height: 1.5;
   }
+  .slide-content {
+	  max-height: 450px;
+  }
 </style>
 
 <svelte:head>
@@ -41,13 +45,15 @@
   </div>
 </div>
 <div class="row">
-  <Carousel perPage="1" autoplay="6000">
-    {#each listings as listing}
+  <Carousel perPage="1" autoplay="5500">
+	{#each listings as listing}
+	<div class="card">
       <a href="listing/{listing.slug.current}">
         <div class="slide-content">
           <img src={urlFor(listing.mainImage)} alt="The alt" />
         </div>
-      </a>
+	  </a>
+	</div>
     {/each}
   </Carousel>
 </div>
