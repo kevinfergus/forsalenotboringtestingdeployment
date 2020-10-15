@@ -3,7 +3,7 @@
   export function preload({ params, query }) {
     return client
       .fetch(
-        '*[_type == "listing" && defined(slug.current) && publishedAt < now()]'
+        '*[_type == "listings" && defined(slug.current) && publishedAt < now()]'
       )
       .then((posts) => {
         return { listing };
