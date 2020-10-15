@@ -1,46 +1,56 @@
 <script context="module">
-	import client from "../sanityClient";
-	import urlBuilder from "@sanity/image-url";
-	const urlFor = source => urlBuilder(client).image(source)
-	export function preload({ params, query }) {
-	  return client
-		.fetch(
-		  '*[_type == "listing" && defined(slug.current) && publishedAt < now()]'
-		)
-		.then((listings) => {
-		  return { listings };
-		})
-		.catch((err) => this.error(500, err));
-	}
-  </script>
-  
-  <script>
-	export let listings;
-  
-	function formatDate(date) {
-	  return new Date(date).toLocaleDateString();
-	}
-  </script>
-  
-  <style>
-	ul {
-	  margin: 0 0 1em 0;
-	  line-height: 1.5;
-	}
-  </style>
-  
-  <svelte:head>
-	<title>Homes</title>
-  </svelte:head>
-  
-  <h1>Newest Homes</h1>
-  <ul>
+  import client from "../sanityClient";
+  import urlBuilder from "@sanity/image-url";
+  import Carousel from "@beyonk/svelte-carousel";
+  const urlFor = (source) => urlBuilder(client).image(source);
+  export function preload({ params, query }) {
+    return client
+      .fetch(
+        '*[_type == "listing" && defined(slug.current) && publishedAt < now()]'
+      )
+      .then((listings) => {
+        return { listings };
+      })
+      .catch((err) => this.error(500, err));
+  }
+</script>
+
+<script>
+  export let listings;
+
+  function formatDate(date) {
+    return new Date(date).toLocaleDateString();
+  }
+</script>
+
+<style>
+  ul {
+    margin: 0 0 1em 0;
+    line-height: 1.5;
+  }
+  .slide-content {
+	  width: 100%;
+  }
+</style>
+
+<svelte:head>
+  <title>Homes</title>
+</svelte:head>
+<Carousel>
+	{#each listings as listing}
+    <div class="slide-content">
+	  <img src={urlFor(listing.mainImage)} alt="The alt" />
+	</div>
+	{/each}
+</Carousel>
+
+<h1>Newest Homes</h1>
+<ul>
   {#each listings as listing}
-  
-	  <!-- we're using the non-standard `rel=prefetch` attribute to
+    <!-- we're using the non-standard `rel=prefetch` attribute to
 					tell Sapper to load the data for the page as soon as
 					the user hovers over the link or taps it, instead of
 					waiting for the 'click' event -->
-	  <li><a class='text-dark' rel='prefetch' href='listing/{listing.slug.current}'>{listing.address}</a> - ${listing.price}</li>
-	{/each}
-  </ul>
+    <li><a class='text-dark' rel='prefetch' href='listing/{listing.slug.current}'>{listing.address}</a> - ${listing.price}</li>
+  {/each}
+</ul>

@@ -34,6 +34,7 @@
 </svelte:head>
 
 <h1>All Homes</h1>
+
 <ul>
 {#each listings as listing}
 
