@@ -32,9 +32,6 @@
 </svelte:head>
 
 <h1>All Homes</h1>
-{#each listings as listing}
-<img src={urlFor(listing.mainImage)}
-/>  
 <ul>
 {#each listings as listing}
     <!-- we're using the non-standard `rel=prefetch` attribute to

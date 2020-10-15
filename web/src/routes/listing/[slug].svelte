@@ -3,6 +3,7 @@
   import BlockContent from "@movingbrands/svelte-portable-text";
   import urlBuilder from "@sanity/image-url";
   import serializers from "../../components/serializers";
+  const urlFor = source => urlBuilder(client).image(source)
   export async function preload({ params }) {
     // the `slug` parameter is available because
     // this file is called [slug].html
