@@ -17,5 +17,7 @@
     "@sanity/cli": "^2.0.3",
     "lerna": "^3.14.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "chota": "^0.8.0"
+  }
 }

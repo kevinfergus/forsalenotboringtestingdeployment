@@ -1,6 +1,9 @@
+@import url("https://unpkg.com/chota@latest");
+
 :root {
 	--bg-color: #ecbde2;
 	--color-primary: #ecbde2;
+	--color-dark: #000;
 }
 body {
 	margin: 0;
