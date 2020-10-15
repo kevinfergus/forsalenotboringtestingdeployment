@@ -1,6 +1,7 @@
 <script context="module">
   import client from "../../sanityClient";
   import BlockContent from "@movingbrands/svelte-portable-text";
+  import urlBuilder from "@sanity/image-url";
   import serializers from "../../components/serializers";
   export async function preload({ params }) {
     // the `slug` parameter is available because
@@ -9,11 +10,14 @@
     const filter = '*[_type == "listing" && slug.current == $slug][0]';
     const projection = `{
       ...,
+      mainImage{
+        ...,
+        asset->
+      },
       body[]{
         ...,
-
       }
-    }`;;
+    }`;
 
     const query = filter + projection;
     const listing = await client
@@ -58,5 +62,6 @@
 <h1>{listing.address}</h1>
 
 <div class="content">
-  <BlockContent blocks={listing.body} {serializers} />
+  <img src={listing.mainImage.url} alt={listing.mainImage.alt} />
+  {@html listing.body}
 </div>

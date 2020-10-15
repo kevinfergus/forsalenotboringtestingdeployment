@@ -31,10 +31,11 @@
   <title>Homes</title>
 </svelte:head>
 
-<h1>Recent posts</h1>
-
-<ul>
-  {#each listings as listing}
+<h1>All Homes</h1>
+{#each listings as listing}
+<img src={urlFor(listing.mainImage)}
+/>  
+{#each listings as listing}
     <!-- we're using the non-standard `rel=prefetch` attribute to
                   tell Sapper to load the data for the page as soon as
                   the user hovers over the link or taps it, instead of
