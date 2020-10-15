@@ -24,8 +24,9 @@
     const listing = await client
       .fetch(query, { slug })
       .catch((err) => this.error(500, err));
-    return { listing };
-  }
+      return { listing
+}
+	}
 </script>
 
 <script>
@@ -62,7 +63,4 @@
 
 <h1>{listing.address}</h1>
 
-<div class="content">
-  <img src={listing.mainImage.url} alt={listing.mainImage.alt} />
-  {@html listing.body}
-</div>
+<h3>{listing.price}</h3>
