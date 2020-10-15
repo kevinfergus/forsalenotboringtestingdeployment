@@ -6,7 +6,7 @@
     // the `slug` parameter is available because
     // this file is called [slug].html
     const { slug } = params;
-    const filter = '*[_type == "listings" && slug.current == $slug][0]';
+    const filter = '*[_type == "listing" && slug.current == $slug][0]';
     const projection = `{
         ...,
         body[]{

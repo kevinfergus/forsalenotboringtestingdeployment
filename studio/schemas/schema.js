@@ -9,7 +9,7 @@ import author from './documents/author'
 import category from './documents/category'
 import post from './documents/post'
 import siteSettings from './documents/siteSettings'
-import listings from './documents/listings'
+import listing from './documents/listings'
 // Object types
 import bodyPortableText from './objects/bodyPortableText'
 import bioPortableText from './objects/bioPortableText'
@@ -28,7 +28,7 @@ export default createSchema({
     // in the studio.
     siteSettings,
     post,
-    listings,
+    listing,
     category,
     author,
     mainImage,

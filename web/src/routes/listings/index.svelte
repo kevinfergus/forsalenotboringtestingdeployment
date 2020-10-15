@@ -3,10 +3,10 @@
   export function preload({ params, query }) {
     return client
       .fetch(
-        '*[_type == "listings" && defined(slug.current) && publishedAt < now()]'
+        '*[_type == "listing" && defined(slug.current) && publishedAt < now()]'
       )
       .then((posts) => {
-        return { listing };
+        return { listings };
       })
       .catch((err) => this.error(500, err));
   }
