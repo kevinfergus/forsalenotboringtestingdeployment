@@ -29,9 +29,6 @@ export default {
         'process.env.NODE_ENV': JSON.stringify(mode),
       }),
       svelte({
-        preprocess: {
-          ...image(),
-        },
         dev,
         hydratable: true,
         emitCss: true,
@@ -85,6 +82,9 @@ export default {
         'process.env.NODE_ENV': JSON.stringify(mode),
       }),
       svelte({
+          preprocess: {
+            ...image(),
+          },
         generate: 'ssr',
         dev,
       }),

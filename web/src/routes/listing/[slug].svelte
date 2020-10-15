@@ -1,7 +1,8 @@
 <script context="module">
   import client from "../../sanityClient";
   import urlBuilder from "@sanity/image-url";
-  const urlFor = source => urlBuilder(client).image(source)
+  import Image from "svelte-image";
+  const urlFor = (source) => urlBuilder(client).image(source);
   export async function preload({ params }) {
     // the `slug` parameter is available because
     // this file is called [slug].html
@@ -22,9 +23,8 @@
     const listing = await client
       .fetch(query, { slug })
       .catch((err) => this.error(500, err));
-      return { listing
-}
-	}
+    return { listing };
+  }
 </script>
 
 <script>
@@ -59,8 +59,11 @@
   <title>{listing.address}</title>
 </svelte:head>
 <div class="content">
-<img src={urlFor(listing.mainImage)} alt="The alt">
-<h1>{listing.address}</h1>
-
-<h3>${listing.price}</h3>
+  <div class="row">
+    <Image src={urlFor(listing.mainImage)}  height="400" alt="The alt" />
+  </div>
+  <div class="row">
+    <h1>{listing.address}</h1>
+    <h3>${listing.price}</h3>
+  </div>
 </div>

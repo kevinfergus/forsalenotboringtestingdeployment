@@ -47,13 +47,10 @@
 <div class="row">
   <Carousel perPage="1" autoplay="5500">
 	{#each listings as listing}
-	<div class="card">
       <a href="listing/{listing.slug.current}">
         <div class="slide-content">
-          <img src={urlFor(listing.mainImage)} alt="The alt" />
-        </div>
+          <Image src="{urlFor(listing.mainImage)}" width=1000 alt="The alt" />
 	  </a>
-	</div>
     {/each}
   </Carousel>
 </div>
