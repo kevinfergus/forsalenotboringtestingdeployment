@@ -8,10 +8,12 @@
     const { slug } = params;
     const filter = '*[_type == "listing" && slug.current == $slug][0]';
     const projection = `{
+      ...,
+      body[]{
         ...,
-        body[]{
-          ...,
-      }`;
+
+      }
+    }`;;
 
     const query = filter + projection;
     const listing = await client
