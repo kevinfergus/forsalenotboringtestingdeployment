@@ -70,7 +70,7 @@
       <a
         rel="prefetch"
         class={segment === 'listing' ? 'selected' : ''}
-        href="listing">listing</a>
+        href="homes">homes</a>
     </li>
   </ul>
 </nav>

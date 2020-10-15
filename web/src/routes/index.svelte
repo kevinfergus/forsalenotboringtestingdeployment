@@ -31,6 +31,7 @@
   }
   .slide-content {
 	  max-height: 450px;
+	  width: 100%;
   }
 </style>
 
@@ -47,9 +48,9 @@
 <div class="row">
   <Carousel perPage="1" autoplay="5500">
 	{#each listings as listing}
-      <a href="listing/{listing.slug.current}">
+      <a href="homes/{listing.slug.current}">
         <div class="slide-content">
-          <Image src="{urlFor(listing.mainImage)}" width=1000 alt="The alt" />
+          <Image src="{urlFor(listing.mainImage)}" width=1200 alt="The alt" />
 	  </a>
     {/each}
   </Carousel>
@@ -61,6 +62,6 @@
 					tell Sapper to load the data for the page as soon as
 					the user hovers over the link or taps it, instead of
 					waiting for the 'click' event -->
-    <li><a class='text-dark' rel='prefetch' href='listing/{listing.slug.current}'>{listing.address}</a> - ${listing.price}</li>
+    <li><a class='text-dark' rel='prefetch' href='homes/{listing.slug.current}'>{listing.address}</a> - ${listing.price}</li>
   {/each}
 </ul>

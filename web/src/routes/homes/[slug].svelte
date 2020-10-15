@@ -60,10 +60,9 @@
 </svelte:head>
 <div class="content">
   <div class="row">
-    <Image src={urlFor(listing.mainImage)}  height="400" alt="The alt" />
+    <h1>{listing.address} | ${listing.price}</h1>
   </div>
   <div class="row">
-    <h1>{listing.address}</h1>
-    <h3>${listing.price}</h3>
+    <Image src={urlFor(listing.mainImage)}  alt="The alt" />
   </div>
 </div>
