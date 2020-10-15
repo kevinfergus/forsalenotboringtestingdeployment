@@ -14,7 +14,7 @@
       }`;
 
     const query = filter + projection;
-    const post = await client
+    const listing = await client
       .fetch(query, { slug })
       .catch((err) => this.error(500, err));
     return { listing };
