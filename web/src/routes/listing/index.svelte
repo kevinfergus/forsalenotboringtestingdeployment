@@ -5,7 +5,7 @@
       .fetch(
         '*[_type == "listing" && defined(slug.current) && publishedAt < now()]'
       )
-      .then((posts) => {
+      .then((listings) => {
         return { listings };
       })
       .catch((err) => this.error(500, err));
@@ -39,6 +39,6 @@
                   tell Sapper to load the data for the page as soon as
                   the user hovers over the link or taps it, instead of
                   waiting for the 'click' event -->
-    <li><a rel='prefetch' href='homes/{listing.slug.current}'>{listing.title}</a> ({formatDate(listing.publishedAt)})</li>
+    <li><a rel='prefetch' href='listing/{listing.slug.current}'>{listing.title}</a> ({formatDate(listing.publishedAt)})</li>
   {/each}
 </ul>
