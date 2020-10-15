@@ -28,22 +28,29 @@
     margin: 0 0 1em 0;
     line-height: 1.5;
   }
-  .slide-content {
-	  width: 100%;
-  }
 </style>
 
 <svelte:head>
   <title>Homes</title>
 </svelte:head>
-<Carousel>
-	{#each listings as listing}
-    <div class="slide-content">
-	  <img src={urlFor(listing.mainImage)} alt="The alt" />
-	</div>
-	{/each}
-</Carousel>
-
+<div class="row">
+  <div class="col">
+    <div class="card text-center">
+		<p>First time on FSNB? <a href=/about>Learn More</a></p>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <Carousel perPage="1" autoplay="6000">
+    {#each listings as listing}
+      <a href="listing/{listing.slug.current}">
+        <div class="slide-content">
+          <img src={urlFor(listing.mainImage)} alt="The alt" />
+        </div>
+      </a>
+    {/each}
+  </Carousel>
+</div>
 <h1>Newest Homes</h1>
 <ul>
   {#each listings as listing}
