@@ -33,7 +33,7 @@
 	<title>Homes</title>
   </svelte:head>
   
-  <h1>All Homes</h1>
+  <h1>Newest Homes</h1>
   <ul>
   {#each listings as listing}
   
