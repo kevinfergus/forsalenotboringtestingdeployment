@@ -1,5 +1,7 @@
 <script context="module">
   import client from "../sanityClient";
+  import Card, {Content, PrimaryAction, Media, MediaContent, Actions, ActionButtons, ActionIcons} from '@smui/card';
+  import Button, {Label} from '@smui/button';
   import urlBuilder from "@sanity/image-url";
   import Image from "svelte-image";
   import Carousel from "@beyonk/svelte-carousel";
@@ -55,13 +57,9 @@
     {/each}
   </Carousel>
 </div>
-<h1>Newest Homes</h1>
-<ul>
+<h1>New Homes</h1>
+<div>
   {#each listings as listing}
-    <!-- we're using the non-standard `rel=prefetch` attribute to
-					tell Sapper to load the data for the page as soon as
-					the user hovers over the link or taps it, instead of
-					waiting for the 'click' event -->
-    <li><a class='text-dark' rel='prefetch' href='homes/{listing.slug.current}'>{listing.address}</a> - ${listing.price}</li>
+    <Card style="width: 250px;" padded>{listing.address}</Card>
   {/each}
-</ul>
+</div>
