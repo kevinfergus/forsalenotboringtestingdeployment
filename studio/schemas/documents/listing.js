@@ -47,6 +47,11 @@ export default {
       name: 'price',
       type: 'number',
       title: 'Price'
+    },
+    {
+      name: 'homepageFeatured',
+      type: 'boolean',
+      title: 'Featured?'
     }
   ],
   preview: {

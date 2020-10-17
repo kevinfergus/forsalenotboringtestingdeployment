@@ -21,7 +21,9 @@
     "lerna": "^3.14.0",
     "multicarousel": "^3.0.1",
     "svelte-feather-icons": "^3.3.0",
-    "svelte-image": "^0.2.7"
+    "svelte-image": "^0.2.7",
+    "svelte-preprocess": "^4.5.1",
+    "svelte-sequential-preprocessor": "0.0.4"
   },
   "dependencies": {
     "chota": "^0.8.0"

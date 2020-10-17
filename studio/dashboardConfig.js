@@ -1,12 +1,17 @@
 export default {
   widgets: [
     {
+      name: 'document-list',
+      options: { title: 'Recent listings', order: '_createdAt desc', types: ['listing'] },
+      layout: { width: 'medium' }
+    },
+    {
       name: 'sanity-tutorials',
       options: {
         templateRepoId: 'sanity-io/sanity-template-gatsby-blog'
       }
     },
-    {name: 'structure-menu'},
+    { name: 'structure-menu' },
     {
       name: 'project-info',
       options: {
@@ -39,15 +44,13 @@ export default {
             value: 'https://github.com/wernecke/sanity-sapper-blog',
             category: 'Code'
           },
-          {title: 'Frontend', value: 'https://sanity-sapper-blog-web-cx49edh6.netlify.app', category: 'apps'}
+          {
+            title: 'Frontend',
+            value: 'https://sanity-sapper-blog-web-cx49edh6.netlify.app',
+            category: 'apps'
+          }
         ]
       }
-    },
-    {name: 'project-users', layout: {height: 'auto'}},
-    {
-      name: 'document-list',
-      options: {title: 'Recent blog posts', order: '_createdAt desc', types: ['post']},
-      layout: {width: 'medium'}
     }
   ]
 }
