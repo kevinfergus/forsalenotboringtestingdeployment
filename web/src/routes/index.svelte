@@ -34,7 +34,7 @@
 
 <style>
   .hoverable:hover {
-    background-color: yellow;
+    background-color: #e53e3eab;
   }
   .text-secondary {
     color: #e53e3e;
@@ -57,11 +57,21 @@
     padding-top: 20px;
   }
 
-  .menu-list a {
-    color: black;
-    margin-bottom: 20px;
-    text-decoration: none;
+  .menu-list li {
     display: inline-block;
+    color: black;
+    border-top: 1px solid #A7A7A7;
+    border-bottom: 1px solid #A7A7A7;
+    padding: 8px;
+  }
+  .menu-list li:first-of-type {
+    border-bottom: none;
+  }
+  .menu-list li:last-of-type {
+    border-top: none;
+  }
+  .menu-list a {
+    text-decoration: none;
   }
 
   .parent {
