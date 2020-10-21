@@ -103,7 +103,7 @@
   </div>
 </div>
 <div class="row">
-  <Carousel perPage="1" autoplay="5500">
+  <Carousel perPage="1">
     {#each filteredList as listing}
       <a href="homes/{listing.slug.current}">
         <div class="slide-content">
@@ -111,24 +111,4 @@
         </div></a>
     {/each}
   </Carousel>
-</div>
-<a href="/homes">
-  <h3>Latest Homes</h3>
-</a>
-<div class="parent">
-  <div class="child">
-    <ul class="menu-list">
-      {#each notFeatured as listing}
-        <li class="hoverable">
-          <a
-            on:mouseover={() => updateHoverImg(urlFor(listing.mainImage))}
-            href="/homes/{listing.slug.current}"
-            data-src={urlFor(listing.mainImage)}>{listing.address} | ${listing.price}</a>
-        </li>
-      {/each}
-    </ul>
-  </div>
-  <div class="child menu-image-holder">
-    <Image class="hoverImage" src={hoverImageSrc} alt="The alt" />
-  </div>
 </div>

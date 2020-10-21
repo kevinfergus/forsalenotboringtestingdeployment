@@ -3,7 +3,6 @@
   import urlBuilder from "@sanity/image-url";
   import BlockContent from "@movingbrands/svelte-portable-text";
   const urlFor = (source) => urlBuilder(client).image(source);
-  import Image from "svelte-image";
 </script>
 
 <script>
@@ -12,7 +11,6 @@
 
 <style>
   .card-container {
-    /* min-height: 100vh; */
     width: 100%;
     margin: auto;
     display: flex;
@@ -21,11 +19,10 @@
   }
   .listing-card {
     margin: 0;
-    height: 20em;
-    width: 45em;
+    height: 100%;
+    width: 100%;
     flex: 1 1 auto;
     display: flex;
-    background-color: white;
     padding: 1rem 2rem;
     border-radius: 4px;
   }
@@ -36,14 +33,13 @@
 
   .card-img {
     height: 100%;
-    width: 28em;
+    width: 100%;
     object-fit: cover;
     flex: 1 1 auto;
   }
 
   .card-body {
-    background-color: #fff;
-    width: 12em;
+    width: 50%;
     max-height: 100%;
     flex: 1 1 auto;
     display: flex;
@@ -67,14 +63,70 @@
   .card-text p {
     margin-top: 0;
   }
-  .card-text h3:after,
-  .card-text p:after {
-    position: absolute;
-    bottom: 0;
-    content: "";
+
+  a {
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  @media only screen and (max-device-width: 480px) {
+.card-container {
     width: 100%;
-    height: 2.8em;
-    background: linear-gradient(rgba(255, 255, 255, 0), white);
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+  }
+  .listing-card {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    border-radius: 4px;
+  }
+
+  .listing-card p:last-child {
+    margin: 0;
+  }
+
+  .card-img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    flex: 1 1 auto;
+  }
+
+  .card-body {
+    width: 100%;
+    max-height: 100%;
+    flex: 1 1 auto;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    padding: 0;
+  }
+
+  .card-text {
+    position: relative;
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0;
+  }
+  .card-text h3 {
+    font-weight: 500;
+    margin-bottom: .2em;
+  }
+  .card-text h3,
+  .card-text p {
+    margin-top: 0;
+  }
+
+  .card-text p {
+    margin-bottom: 0;
   }
 
   a {
@@ -83,13 +135,16 @@
   a:hover {
     text-decoration: underline;
   }
+
+        
+  }
 </style>
 
 <div class="card-container">
   <div class="listing-card bg-primary">
     <a href="homes/{data.slug.current}">
       <div class="card-img">
-        <Image src={urlFor(data.mainImage)} width="1200" alt="The alt" />
+        <img src={urlFor(data.mainImage)} width="1200" alt="The alt">
       </div>
     </a>
     <div class="card-body">

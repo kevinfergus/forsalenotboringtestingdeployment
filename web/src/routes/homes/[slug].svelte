@@ -1,7 +1,7 @@
 <script context="module">
   import client from "../../sanityClient";
   import urlBuilder from "@sanity/image-url";
-  import Image from "svelte-image";
+  import BlockContent from "@movingbrands/svelte-portable-text";
   const urlFor = (source) => urlBuilder(client).image(source);
   export async function preload({ params }) {
     // the `slug` parameter is available because
@@ -32,6 +32,10 @@
 </script>
 
 <style>
+  .content {
+    max-width: 960px;
+    margin: 0 auto;
+  }
   .content :global(h2) {
     font-size: 1.4em;
     font-weight: 500;
@@ -60,9 +64,28 @@
 </svelte:head>
 <div class="content">
   <div class="row">
-    <h1>{listing.address} | ${listing.price}</h1>
+    <div class="col-6">
+      <h3>{listing.address}</h3>
+    </div>
+    <div class="col-6">
+      <h4>${listing.price}</h4>
+    </div>
   </div>
   <div class="row">
-    <Image src={urlFor(listing.mainImage)}  alt="The alt" />
+    <div class="col-8">
+    <img src={urlFor(listing.mainImage)}  alt="The alt" />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <h3>Highlights</h3>
+    <BlockContent blocks={listing.excerpt} />
+    <h3>Description</h3>
+    <BlockContent blocks={listing.body} />
+    <h3>Listing Agent</h3>
+    <h4>John Wernecke</h4>
+    <p>info@forsalenotboring.com</p>
+    <p>410-991-9814</p>
+    </div>
   </div>
 </div>
