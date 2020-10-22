@@ -32,6 +32,13 @@ export default {
       title: 'Main image',
     },
     {
+       name: 'imageGallery',
+       title: 'Image Gallery',
+       type: 'array',
+       of: [{ type: 'image'  }]
+
+    },
+    {
       name: 'excerpt',
       type: 'excerptPortableText',
       title: 'Excerpt',
@@ -47,6 +54,21 @@ export default {
       name: 'price',
       type: 'number',
       title: 'Price'
+    },
+    {
+      name: 'beds',
+      type: 'number',
+      title: 'Beds'
+    },
+    {
+      name: 'baths',
+      type: 'number',
+      title: 'Baths'
+    },
+    {
+      name: 'City',
+      type: 'string',
+      title: 'City'
     },
     {
       name: 'homepageFeatured',
