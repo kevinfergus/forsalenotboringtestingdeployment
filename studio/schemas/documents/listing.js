@@ -66,7 +66,7 @@ export default {
       title: 'Baths'
     },
     {
-      name: 'City',
+      name: 'city',
       type: 'string',
       title: 'City'
     },

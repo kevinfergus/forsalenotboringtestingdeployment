@@ -29,6 +29,7 @@
 
 <script>
   export let listing;
+  export let images = listing.imageGallery;
 </script>
 
 <style>
@@ -57,6 +58,9 @@
   .content :global(li) {
     margin: 0 0 0.5em 0;
   }
+  .galleryImg {
+    margin: 5px 0;
+  }
 </style>
 
 <svelte:head>
@@ -66,6 +70,7 @@
   <div class="row">
     <div class="col-6">
       <h3>{listing.address}</h3>
+      <p>{listing.beds}bd {listing.baths}ba</p>
     </div>
     <div class="col-6">
       <h4>${listing.price}</h4>
@@ -86,6 +91,11 @@
     <h4>John Wernecke</h4>
     <p>info@forsalenotboring.com</p>
     <p>410-991-9814</p>
+    {#each images as galleryImg}
+      <div class="galleryImg">
+      <img src={urlFor(galleryImg)} alt="alt">
+      </div>
+    {/each}
     </div>
   </div>
 </div>

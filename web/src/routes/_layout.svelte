@@ -9,12 +9,12 @@
 		position: relative;
 		max-width: 65em;
 		padding: 2em;
-		margin: 0 auto;
+		margin: 2em auto 0;
 		box-sizing: border-box;
 	}
 </style>
 
-<Nav {segment}/>
+<Nav/>
 
 <main> 
 	<slot></slot>

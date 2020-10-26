@@ -69,6 +69,7 @@
   }
   a:hover {
     text-decoration: underline;
+    opacity: 1;
   }
   @media only screen and (max-device-width: 480px) {
 .card-container {
@@ -152,7 +153,7 @@
         <a href="homes/{data.slug.current}">
           <h3>{data.address}</h3>
         </a>
-        <p>${data.price}</p>
+        <p>${data.price} | {data.City}</p>
         <BlockContent blocks={data.excerpt} />
       </div>
     </div>
