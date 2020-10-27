@@ -1,6 +1,8 @@
 <nav class="flex items-center justify-between flex-wrap bg-secondary p-4">
       <div class="flex items-center flex-shrink-0 text-white mr-6">
+          <a href=".">
                   <span class="font-semibold text-xl tracking-tight">FOR SALE NOT BORING</span>
+          </a>
                     </div>
                       <div class="block">
                           <button on:click="{child.show}" class="flex items-center px-3 py-2 border rounded text-white border-white hover:text-white hover:border-white">
@@ -9,15 +11,16 @@
                                               </div>
                                               <Hidden bind:this={child} on:show={e => child.shown = e.detail}>
                                                 <div id="mobile-menu" class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
-                                                        <div class="text-sm lg:flex-grow">
-                                                                  <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
-                                                                              Docs
-                                                                                    </a>
-                                                                                          <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
-                                                                                                      Examples
+                                                        <div class="text-sm text-white lg:flex-grow">
+                                                                                                                                                           <a href="/homes/chicago" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+                                                                                                      Chicago
                                                                                                             </a>
-                                                                                                                  <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
-                                                                                                                              Blog
+ <a href="/homes/columbus" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+                                                                                           Columbus
+                                                                                    </a>
+
+                                                                                                                  <a href="/about" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
+                                                                                                                              About
                                                                                                                                     </a>
                                                                                                                                         </div>
                                                                                                                                             <div>
