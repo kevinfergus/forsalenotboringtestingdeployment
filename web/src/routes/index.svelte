@@ -46,14 +46,14 @@
   <span class="font-semibold text-lg">
     Today
   </span>
-  <a href="/homes">
+  <a href="/homes/">
     <span class="text-sm">
       View All
     </span>
   </a>
   </div>
     {#each filteredList as listing}
-      <a href="homes/{listing.slug.current}">
+      <a rel=prefetch href="homes/{listing.slug.current}/">
           <HomepageCard data={listing} />
       </a>
     {/each}
