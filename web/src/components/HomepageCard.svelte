@@ -15,15 +15,11 @@
                                                   <div class="bg-cover bg-center h-56 p-4" style="background-image: url({urlFor(data.mainImage)})">
                                                                                   </div>
                                                                                               <div class="p-4 bg-white">
-                                                                                                      <p class="uppercase tracking-wide text-sm font-bold text-gray-700">{data.city} • {data.beds}bd {data.baths}ba</p>
-                                                                                                                     <p class="text-3xl text-gray-900">${data.price}</p>
-                                                                                                                                    <p class="text-gray-700">{data.address}</p>
-                                                                                                                                                               </div>
-                                                                                                                                                                           <div class="flex p-4 border-t border-gray-300 text-gray-700">
-                                                                                                                                                                                                  <div class="flex-1 inline-flex items-center">
+                                                                                                      <p class="uppercase tracking-wide text-sm font-semibold text-gray-700">{data.city} • {data.beds}bd {data.baths}ba • ${data.price} </p>
+                                                                                                      <p class="text-xl text-gray-900">
         <BlockContent blocks={data.excerpt} />
-                                                                                                                                                                                                                                           </div>
+</p>                                                                                                                            <p class="text-gray-700">{data.address}</p>
+                                                                                                                                                               </div>
                                                                                                                                                                                                                                                                                                                </div>
                                                                                                                                                                                                                                                                                                                         </div>
-                                                                                                                                                                                                                                                                                                                              </div>
                                                                                                                                                                                                                                                                                                                                  </div>

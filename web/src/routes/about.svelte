@@ -1,15 +1,9 @@
-<style>
-	p {
-		font-size: 1.35em;
-	}
-</style>
-
 <svelte:head>
 	<title>About</title>
 </svelte:head>
-
-<h1>We find real estate listings that don't suck</h1>
-
+<div class="container px-4 mx-auto">
+	<h1 class="text-2xl">Experience the magic of curated real estate listings</h1>
+<br>
 <p>Redfin and Zillow have filters for everything from HOA fees to whether a place has a pool, but they‘re ignoring an important question:
 <br><br>
 “Is this boring?”
@@ -40,3 +34,4 @@ Got something to say?
 <br><br>
 Send me an email <a href="mailto:info@forsalenotboring.com">info@forsalenotboring.com</a>.
 </p>
+</div>

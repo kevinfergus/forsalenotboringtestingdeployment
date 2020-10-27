@@ -41,7 +41,7 @@
     </div>
   </div>
 </div>
-<div class="row mt-2 mb-0">
+<div class="row mt-3 mb-0">
   <div class="flex px-3 items-baseline justify-between">
   <span class="font-semibold text-lg">
     Today

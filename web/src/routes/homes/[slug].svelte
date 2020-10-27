@@ -33,56 +33,31 @@
 </script>
 
 <style>
-  .content {
-    max-width: 960px;
-    margin: 0 auto;
-  }
-  .content :global(h2) {
-    font-size: 1.4em;
-    font-weight: 500;
-  }
-
-  .content :global(img) {
-    display: block;
-    max-width: 100%;
-  }
-
-  .content :global(figure) {
-    margin: 0;
-  }
-
-  .content :global(ul) {
-    line-height: 1.5;
-  }
-
-  .content :global(li) {
-    margin: 0 0 0.5em 0;
-  }
-  .galleryImg {
-    margin: 5px 0;
-  }
 </style>
 
 <svelte:head>
   <title>{listing.address}</title>
 </svelte:head>
-<div class="content">
-  <div class="row">
-    <div class="col-6">
-      <h3>{listing.address}</h3>
+<div class="container mx-auto">
+<div class="w-full">
+    <img class="w-full" src={urlFor(listing.mainImage)}  alt="The alt" />
+    </div>
+    <div class="w-full py-3">
+      <h1 class="text-center font-semibold text-xl">{listing.address}</h1>
+    </div>
+    <div class="flex w-full justify-between flex-row text-center">
+    <div class="w-1/3">
       <p>{listing.beds}bd {listing.baths}ba</p>
     </div>
-    <div class="col-6">
+    <div class="w-1/3">
       <h4>${listing.price}</h4>
+</div>
+<div class="w-1/3">
+  <h4>{listing.city}</h4>
+</div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-8">
-    <img src={urlFor(listing.mainImage)}  alt="The alt" />
-    </div>
-  </div>
-  <div class="row">
-    <div class="col">
+</div>
+        <div class="col">
       <h3>Highlights</h3>
     <BlockContent blocks={listing.excerpt} />
     <h3>Description</h3>
@@ -97,5 +72,3 @@
       </div>
     {/each}
     </div>
-  </div>
-</div>
