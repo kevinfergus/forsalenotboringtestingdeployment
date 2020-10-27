@@ -142,7 +142,7 @@
 </style>
 
 <div class="card-container">
-  <div class="listing-card bg-primary">
+  <div class="listing-card bg-white">
     <a href="homes/{data.slug.current}">
       <div class="card-img">
         <img src={urlFor(data.mainImage)} width="1200" alt="The alt">

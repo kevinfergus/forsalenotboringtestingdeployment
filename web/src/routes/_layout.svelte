@@ -8,8 +8,8 @@
 	main {
 		position: relative;
 		max-width: 65em;
-		padding: 2em;
-		margin: 2em auto 0;
+		padding: 1em;
+		margin: 0 auto;
 		box-sizing: border-box;
 	}
 </style>

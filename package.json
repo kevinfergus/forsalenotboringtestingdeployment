@@ -18,12 +18,14 @@
     "@sanity/cli": "^2.0.5",
     "@smui/button": "^1.0.0",
     "@smui/card": "^1.0.0",
+    "@tailwindcss/typography": "^0.2.0",
     "lerna": "^3.14.0",
     "multicarousel": "^3.0.1",
     "svelte-feather-icons": "^3.3.0",
     "svelte-image": "^0.2.7",
     "svelte-preprocess": "^4.5.1",
-    "svelte-sequential-preprocessor": "0.0.4"
+    "svelte-sequential-preprocessor": "0.0.4",
+    "tailwindcss": "^1.9.6"
   },
   "dependencies": {
     "chota": "^0.8.0"
