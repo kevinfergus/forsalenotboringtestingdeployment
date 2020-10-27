@@ -1,11 +1,12 @@
 module.exports = {
   future: {
         removeDeprecatedGapUtilities: true,
-
+    purgeLayersByDefault: true,
+        defaultLineHeights: true,
   },
   experimental: {
-        uniformColorPalette: true,
-        extendedFontSizeScale: true,
+        // uniformColorPalette: true,
+        // extendedFontSizeScale: true,
         // currently Sapper dev server chokes on this
     //     // applyComplexClasses: true,
     //
