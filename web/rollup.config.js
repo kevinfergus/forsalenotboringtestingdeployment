@@ -3,7 +3,6 @@ import replace from "@rollup/plugin-replace";
 import commonjs from "@rollup/plugin-commonjs";
 import svelte from "rollup-plugin-svelte";
 import babel from "rollup-plugin-babel";
-import image from "svelte-image";
 import { terser } from "rollup-plugin-terser";
 import json from "@rollup/plugin-json";
 import config from "sapper/config/rollup.js";
@@ -14,9 +13,10 @@ const dev = mode === "development";
 const legacy = !!process.env.SAPPER_LEGACY_BUILD;
 
 const onwarn = (warning, onwarn) =>
-  (warning.code === "CIRCULAR_DEPENDENCY" &&
-    /[/\\]@sapper[/\\]/.test(warning.message)) ||
+    (warning.code === 'MISSING_EXPORT' && /'preload'/.test(warning.message)) ||
+      (warning.code === 'CIRCULAR_DEPENDENCY' && /[/\\]@sapper[/\\]/.test(warning.message)) ||
   onwarn(warning);
+
 const dedupe = ["svelte"];
 
 export default {
@@ -71,6 +71,7 @@ export default {
         }),
     ],
 
+    preserveEntrySignatures: false,
     onwarn,
   },
 
@@ -84,6 +85,7 @@ export default {
       }),
       svelte({
         generate: "ssr",
+        hydratable: true,
         dev,
         preprocess,
       }),
@@ -97,7 +99,7 @@ export default {
       require("module").builtinModules ||
         Object.keys(process.binding("natives"))
     ),
-
+    preserveEntrySignatures: 'strict',
     onwarn,
   },
 
@@ -114,6 +116,7 @@ export default {
       !dev && terser(),
     ],
 
+    preserveEntrySignatures: false,
     onwarn,
   },
 };

@@ -3,8 +3,6 @@
   import urlBuilder from "@sanity/image-url";
   import Card from "../components/Card.svelte";
   import HomepageCard from "../components/HomepageCard.svelte";
-  import Image from "svelte-image";
-  import Carousel from "@beyonk/svelte-carousel";
   const urlFor = (source) => urlBuilder(client).image(source);
   export function preload({ params, query }) {
     return client
@@ -20,9 +18,6 @@
 
 <script>
   export let listings;
-  $: filteredList = listings.filter(
-    (listing) => listing.homepageFeatured === true
-  );
 </script>
 
 <style>
@@ -52,7 +47,7 @@
     </span>
   </a>
   </div>
-    {#each filteredList as listing}
+    {#each listings as listing}
       <a rel=prefetch href="homes/{listing.slug.current}/">
           <HomepageCard data={listing} />
       </a>

@@ -1,3 +1,6 @@
+<script context="module">
+  import client from "../sanityClient";
+</script>
 <svelte:head>
 	<title>About</title>
 </svelte:head>

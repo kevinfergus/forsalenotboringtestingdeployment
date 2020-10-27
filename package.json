@@ -19,7 +19,7 @@
     "@smui/button": "^1.0.0",
     "@smui/card": "^1.0.0",
     "@tailwindcss/typography": "^0.2.0",
-    "lerna": "^3.14.0",
+    "lerna": "^3.22.1",
     "multicarousel": "^3.0.1",
     "svelte-feather-icons": "^3.3.0",
     "svelte-image": "^0.2.7",
@@ -29,5 +29,5 @@
   },
   "dependencies": {
     "chota": "^0.8.0"
-  }
+}
 }
