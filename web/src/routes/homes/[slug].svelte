@@ -18,7 +18,6 @@
         ...,
       }
     }`;
-
     const query = filter + projection;
     const listing = await client
       .fetch(query, { slug })
@@ -40,34 +39,41 @@
 </svelte:head>
 <div class="container mx-auto">
   <div
-    class="w-full bg-cover bg-center"
+    class="w-full h-64 bg-cover bg-center"
     style="background-image: url({urlFor(listing.mainImage)})"
     alt={listing.address} />
-  <div class="w-full py-3">
-    <h1 class="text-xl">{listing.address}</h1>
-    <h3 class="text-md text-gray-darker">{listing.city}</h3>
-  </div>
-  <div class="flex w-full justify-between flex-row">
-    <div class="w-1/3">
-      <h4>${listing.price}</h4>
-    </div>
-    <div class="w-1/3">
-      <p>{listing.beds}bd {listing.baths}ba</p>
-    </div>
-    <div class="w-1/3">
-      <h4>2000 sqft.</h4>
-    </div>
-  </div>
-  <div class="w-full mx-auto"><span class="text-md">Highlights</span></div>
+<div class="w-full py-3">
+  <h1 class="text-xl">{listing.address}</h1>
+  <h3 class="text-md text-gray-darker">{listing.city}</h3>
 </div>
-<div class="col">
+<div
+  class="flex w-full text-center py-4 px-2 mb-2 rounded-sm justify-start flex-row">
+  <div class="w-1/3">
+    <h4>${listing.price}</h4>
+  </div>
+  <div class="w-1/3">
+    <p>{listing.beds}bed {listing.baths}bath</p>
+  </div>
+  <div class="w-1/3">
+    <h4>2000 sqft.</h4>
+  </div>
+</div>
+<div class="w-full mx-auto">
+  <span class="text-lg font-semibold">Highlights</span>
   <BlockContent blocks={listing.excerpt} />
-  <h3>Description</h3>
+</div>
+<div class="w-full mt-2 mx-auto">
+  <span class="text-lg font-semibold">Description</span>
   <BlockContent blocks={listing.body} />
-  <h3>Listing Agent</h3>
-  <h4>John Wernecke</h4>
-  <p>info@forsalenotboring.com</p>
-  <p>410-991-9814</p>
+</div>
+<div class="w-full mt-2 mx-auto">
+  <span class="text-lg font-semibold">Listing Agent</span>
+ <ul>
+<li>John Wernecke</li>
+<li>info@forsalenotboring.com</li>
+<li>410-991-9814</li>
+ </ul> 
+</div>
   {#each images as galleryImg}
     <div class="my-3"><img src={urlFor(galleryImg)} alt="alt" /></div>
   {/each}

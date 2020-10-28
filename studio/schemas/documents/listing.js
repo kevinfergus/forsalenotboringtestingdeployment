@@ -1,4 +1,4 @@
-import {format} from 'date-fns'
+import { format } from 'date-fns'
 export default {
   name: 'listing',
   type: 'document',
@@ -8,7 +8,7 @@ export default {
       name: 'address',
       type: 'string',
       title: 'Address',
-      description: 'Titles should be catchy, descriptive, and not too long',
+      description: 'Titles should be catchy, descriptive, and not too long'
     },
     {
       name: 'slug',
@@ -17,33 +17,37 @@ export default {
       description: 'Some frontends will require a slug to be set to be able to show the post',
       options: {
         source: 'title',
-        maxLength: 96,
-      },
+        maxLength: 96
+      }
     },
     {
       name: 'publishedAt',
       type: 'datetime',
       title: 'Published at',
-      description: 'This can be used to schedule post for publishing',
+      description: 'This can be used to schedule post for publishing'
+    },
+    {
+      title: 'Date Added',
+      name: 'dateAdded',
+      type: 'date'
     },
     {
       name: 'mainImage',
       type: 'mainImage',
-      title: 'Main image',
+      title: 'Main image'
     },
     {
-       name: 'imageGallery',
-       title: 'Image Gallery',
-       type: 'array',
-       of: [{ type: 'image'  }]
-
+      name: 'imageGallery',
+      title: 'Image Gallery',
+      type: 'array',
+      of: [{ type: 'image' }]
     },
     {
       name: 'excerpt',
       type: 'excerptPortableText',
       title: 'Excerpt',
       description:
-        'This ends up on summary pages, on Google, when people share your post in social media.',
+        'This ends up on summary pages, on Google, when people share your post in social media.'
     },
     {
       name: 'body',
@@ -83,7 +87,7 @@ export default {
       slug: 'slug',
       media: 'mainImage'
     },
-    prepare ({title = 'No title', publishedAt, slug, media}) {
+    prepare({ title = 'No title', publishedAt, slug, media }) {
       const dateSegment = format(publishedAt, 'YYYY/MM')
       const path = `/${dateSegment}/${slug.current}/`
       return {
