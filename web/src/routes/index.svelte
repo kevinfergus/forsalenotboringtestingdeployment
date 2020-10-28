@@ -18,15 +18,21 @@
 <script>
   export let listings;
   let today = new Date();
-  const dd = String(today.getDate()).padStart(2, "0");
+  let yesterday = new Date();
+  const td = String(today.getDate()).padStart(2, "0");
+  const yd = String(today.getDate()-1).padStart(2, "0");
   const mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
   const yyyy = today.getFullYear();
 
-  today = yyyy + "/" + mm + "/" + dd;
+  today = yyyy + "-" + mm + "-" + td;
+  yesterday = yyyy + "-" + mm + "-" + yd;
 
   console.log(today);
-  $: filteredList = listings.filter(
-    (listing, today) => listing.dateAdded == toString(today)
+  export let addedToday = listings.filter(
+    (listing) => listing.dateAdded === today
+  );
+  export let addedYesterday = listings.filter(
+    (listing) => listing.dateAdded === yesterday 
   );
   // export let notFeatured = listings.filter(
   //   (listing) => listing.homepageFeatured === false
@@ -56,7 +62,22 @@
   </div>
   <div class="container mx-auto">
     <div class="flex flex-wrap">
-      {#each filteredList as listing}
+      {#each addedToday as listing}
+        <div class="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
+          <a rel="prefetch" href="homes/{listing.slug.current}/">
+            <HomepageCard data={listing} />
+          </a>
+        </div>
+      {/each}
+    </div>
+  </div>
+  <div class="flex px-3 items-baseline justify-between">
+    <span class="font-semibold text-lg"> Yesterday </span>
+    <a href="/homes/"> <span class="text-sm"> View All </span> </a>
+  </div>
+  <div class="container mx-auto">
+    <div class="flex flex-wrap">
+      {#each addedYesterday as listing}
         <div class="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
           <a rel="prefetch" href="homes/{listing.slug.current}/">
             <HomepageCard data={listing} />

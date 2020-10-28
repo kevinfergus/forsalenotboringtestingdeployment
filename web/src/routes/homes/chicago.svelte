@@ -2,7 +2,6 @@
   import client from "../../sanityClient";
   import urlBuilder from "@sanity/image-url";
   import HomepageCard from "../../components/HomepageCard.svelte";
-  import Image from "svelte-image";
   const urlFor = (source) => urlBuilder(client).image(source);
   export function preload({ params, query }) {
     return client

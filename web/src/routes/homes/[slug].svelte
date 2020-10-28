@@ -55,7 +55,7 @@
     <p>{listing.beds}bed {listing.baths}bath</p>
   </div>
   <div class="w-1/3">
-    <h4>2000 sqft.</h4>
+    <h4>{listing.dateAdded}</h4>
   </div>
 </div>
 <div class="w-full mx-auto">
