@@ -32,14 +32,25 @@
 </script>
 
 <style>
+  .hero-image {
+    height: 70vh;
+  }
+  @media only screen and (max-width: 600px) {
+    .hero-image {
+          height: 270px;
+    }
+    
+  }
+
 </style>
+
 
 <svelte:head>
   <title>{listing.address}</title>
 </svelte:head>
 <div class="container mx-auto">
   <div
-    class="w-full h-64 bg-cover bg-center"
+    class="hero-image w-full bg-cover bg-center"
     style="background-image: url({urlFor(listing.mainImage)})"
     alt={listing.address} />
 <div class="w-full py-3">
@@ -75,6 +86,6 @@
  </ul> 
 </div>
   {#each images as galleryImg}
-    <div class="my-3"><img src={urlFor(galleryImg)} alt="alt" /></div>
+    <div class="my-3 mx-auto"><img class="mx-auto w-11/12" src={urlFor(galleryImg)} alt="alt" /></div>
   {/each}
 </div>

@@ -8,11 +8,16 @@
 <script>
   export let data;
 </script>
+<style>
+  img {
+    height: 280px;
+  }
+</style>
 
 <div class="bg-white shadow-xl rounded-lg overflow-hidden">
   <img
     alt={data.address}
-    class="block h-auto w-full"
+    class="block w-full object-cover"
     src={urlFor(data.mainImage)} />
   <div class="py-2 px-4 bg-white">
     <p class="text-gray-600 text-sm font-normal">{data.address}</p>
@@ -22,7 +27,7 @@
       {data.beds}bd
       {data.baths}ba • ${data.price}
     </p>
-    <p class="text-xl text-gray-900">
+    <p class="text-lg text-gray-900">
       <BlockContent blocks={data.excerpt} />
     </p>
   </div>
