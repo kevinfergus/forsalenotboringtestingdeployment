@@ -39,36 +39,36 @@
   <title>{listing.address}</title>
 </svelte:head>
 <div class="container mx-auto">
-<div class="w-full">
-    <img class="w-full" src={urlFor(listing.mainImage)}  alt="The alt" />
+  <div
+    class="w-full bg-cover bg-center"
+    style="background-image: url({urlFor(listing.mainImage)})"
+    alt={listing.address} />
+  <div class="w-full py-3">
+    <h1 class="text-xl">{listing.address}</h1>
+    <h3 class="text-md text-gray-darker">{listing.city}</h3>
+  </div>
+  <div class="flex w-full justify-between flex-row">
+    <div class="w-1/3">
+      <h4>${listing.price}</h4>
     </div>
-    <div class="w-full py-3">
-      <h1 class="text-center font-semibold text-xl">{listing.address}</h1>
-    </div>
-    <div class="flex w-full justify-between flex-row text-center">
     <div class="w-1/3">
       <p>{listing.beds}bd {listing.baths}ba</p>
     </div>
     <div class="w-1/3">
-      <h4>${listing.price}</h4>
-</div>
-<div class="w-1/3">
-  <h4>{listing.city}</h4>
-</div>
+      <h4>2000 sqft.</h4>
     </div>
+  </div>
+  <div class="w-full mx-auto"><span class="text-md">Highlights</span></div>
 </div>
-        <div class="col">
-      <h3>Highlights</h3>
-    <BlockContent blocks={listing.excerpt} />
-    <h3>Description</h3>
-    <BlockContent blocks={listing.body} />
-    <h3>Listing Agent</h3>
-    <h4>John Wernecke</h4>
-    <p>info@forsalenotboring.com</p>
-    <p>410-991-9814</p>
-    {#each images as galleryImg}
-      <div class="galleryImg">
-      <img src={urlFor(galleryImg)} alt="alt">
-      </div>
-    {/each}
-    </div>
+<div class="col">
+  <BlockContent blocks={listing.excerpt} />
+  <h3>Description</h3>
+  <BlockContent blocks={listing.body} />
+  <h3>Listing Agent</h3>
+  <h4>John Wernecke</h4>
+  <p>info@forsalenotboring.com</p>
+  <p>410-991-9814</p>
+  {#each images as galleryImg}
+    <div class="my-3"><img src={urlFor(galleryImg)} alt="alt" /></div>
+  {/each}
+</div>
