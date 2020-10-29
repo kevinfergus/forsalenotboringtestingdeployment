@@ -50,7 +50,7 @@
 </svelte:head>
 <div class="container mx-auto">
   <div
-    class="hero-image w-full mx-auto bg-cover bg-center"
+    class="hero-image w-full mx-auto bg-cover bg-center rounded"
     style="background-image: url({urlFor(listing.mainImage)})"
     alt={listing.address} />
 <div class="w-full md:w-11/12 mt-3">
@@ -61,7 +61,7 @@
     </div>
     <div>
       <div class="bg-success rounded-lg px-2 py-1 md:px-3 md:py-2">
-   <span class="tracking-wide md:text-right text-sm md:text-md text-black uppercase">Active</span>
+   <span class="tracking-wide font-medium md:text-right text-sm md:text-md text-black uppercase">Active</span>
       </div>
     </div>
   </div>
@@ -102,6 +102,6 @@
 </div>
   <span class="text-lg font-semibold">Best Photos</span>
   {#each images as galleryImg}
-    <div class="my-3 mx-auto"><img class="mx-auto w-11/12" src={urlFor(galleryImg)} alt="alt" /></div>
+    <div class="my-3 mx-auto"><img class="mx-auto rounded md:w-11/12" src={urlFor(galleryImg)} alt="alt" /></div>
   {/each}
 </div>
