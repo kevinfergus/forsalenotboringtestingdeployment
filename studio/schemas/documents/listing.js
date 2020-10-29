@@ -97,4 +97,7 @@ export default {
       }
     }
   }
+  initialValue: {
+    dateAdded: (new Date()).toISOString()
+  }
 }
