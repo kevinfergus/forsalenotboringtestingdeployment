@@ -47,10 +47,10 @@
 </svelte:head>
 <div class="row">
   <div class="col">
-    <div class="card text-center py-2 shadow border rounded border-black">
-      <p class="text-black">
-        New to FSNB?
-        <a class="text-secondary" href="/about">Learn More</a>
+    <div class="card text-center py-2 shadow border-2 rounded border-black">
+      <p class="font-semibold text-black">
+        First time here?
+        <a class="text-secondary font-semibold" href="/about">Learn More</a>
       </p>
     </div>
   </div>

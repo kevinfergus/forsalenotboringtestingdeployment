@@ -2,65 +2,86 @@
   import Hidden from "./Hidden.svelte";
   let child;
 </script>
+<script>
+let showDropdown = false;
+  const toggleDropdown = event => {
+    showDropdown = !showDropdown;
+    }
+</script>
 
-<nav class="flex w-full sm:relative items-center justify-between flex-wrap bg-secondary p-2">
-  <div class="flex items-center flex-shrink-0 text-white mr-6">
+<nav class="flex w-full sm:relative items-center sm:justify-between flex-wrap bg-secondary p-2">
+  <div class="grid px-2 sm:p-0 grid-cols-3 grid-flow-col grid-rows-1 gap-x-2 w-full items-center justify-center text-white sm:mr-6">
+    <div class="col-start-2 text-center">
     <a href="/">
-      <span class="font-semibold tracking-normal text-lg md:text-xl tracking-tight">FOR SALE NOT BORING</span>
+      <span class="inline sm:hidden text-primary font-extrabold tracking-normal text-2xl text-center ">FSNB</span>
     </a>
-  </div>
-    <div class="hidden md:flex items-center">
-        <a
-          href="/homes/chicago/"
-          class="block px-2 inline-block mt-0 text-white">
-          Chicago
-        </a>
-        <a
-          href="/homes/columbus/"
-          class="block px-2 inline-block mt-0 text-white">
-          Columbus
-        </a>
-
-        <a
-          href="/about/"
-          class="block px-2 inline-block mt-0 text-white">
-          About
-        </a>
     </div>
+    <div class="col-start-3 justify-self-end">
+        <div class="dropdown inline-block relative">
+          <button on:click={toggleDropdown} class="bg-transparent text-primary py-1 px-1 uppercase rounded inline-flex items-center">
+                      <span class="text-sm font-bold sm:text-lg mr-1">Browse</span>
+                            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/> </svg>
+                                </button>
+                                {#if showDropdown }
+    <ul class="dropdown-menu bg-secondary absolute text-white pt-1">
+                                            <li class=""><a class="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="/homes/chicago">Chicago</a></li>
+                                                  <li class=""><a class="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="/homes/columbus">Columbus</a></li>
+                                                            </ul>
 
-  <div class="md:hidden block">
+                                {/if}
+                                                                                              </div>
+    </div>
+<div class="col-start-1">
+<a href="/">
+      <span class="hidden sm:block font-semibold tracking-normal text-lg md:text-xl text-primary">FOR SALE NOT BORING</span>
+    </a>
+
     <button
       on:click={child.show}
-      class="flex items-center px-3 py-2 border rounded text-white border-white hover:text-white hover:border-white">
+      class="md:hidden flex items-center px-3 py-2 border-2 rounded text-primary border-primary hover:text-white hover:border-white">
       <svg
         class="fill-current h-3 w-3"
         viewBox="0 0 20 20"
         xmlns="http://www.w3.org/2000/svg"><title>Menu</title>
         <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" /></svg>
     </button>
-  </div>
-  <Hidden bind:this={child} on:show={(e) => (child.shown = e.detail)}>
+<Hidden bind:this={child} on:show={(e) => (child.shown = e.detail)}>
     <div
       id="mobile-menu"
-      class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
-      <div class="text-sm text-white lg:flex-grow">
+      class="w-full h-auto absolute left-0 right-0 bg-secondary block flex-grow lg:flex lg:items-center lg:w-auto">
+      <div class="text-sm px-4 py-2 text-lg text-white lg:flex-grow">
         <a
-          href="/homes/chicago/"
-          class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
-          Chicago
+          href="https://www.instagram.com/forsalenotboring/"
+          class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4">
+         Instagram 
         </a>
         <a
-          href="/homes/columbus/"
-          class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
-          Columbus
+          href="/newsletter"
+          class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4">
+         Newsletter 
+        </a>
+<a
+          href="/submit/"
+          class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white">
+          Submit a Listing
+        </a>
+
+<a
+          href="/about/"
+          class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white">
+          About
         </a>
 
         <a
-          href="/about/"
-          class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
-          About
+          href="/signup"
+          class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4">
+        Sign Up 
         </a>
-      </div>
+              </div>
     </div>
   </Hidden>
-</nav>
+
+  </div>
+      </div>
+    
+  </nav>
