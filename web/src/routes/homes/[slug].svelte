@@ -59,7 +59,7 @@
     class="hero-image w-full mx-auto bg-cover bg-center rounded"
     style="background-image: url({urlFor(listing.mainImage)})"
     alt={listing.address} />
-<div class="w-full md:w-11/12 mt-3">
+<div class="w-full mt-3">
   <div class="flex w-full justify-between">
     <div class="md-w-1/2">
   <h1 class="text-xl md:text-3xl font-semibold">{listing.address}</h1>
