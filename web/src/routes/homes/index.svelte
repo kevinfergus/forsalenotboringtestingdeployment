@@ -3,7 +3,7 @@
   import urlBuilder from "@sanity/image-url";
   import HomepageCard from "../../components/HomepageCard.svelte";
   const urlFor = (source) => urlBuilder(client).image(source);
-  export function preload() {
+  export async function preload() {
     return client
       .fetch(
         '*[_type == "listing" && defined(slug.current) && publishedAt < now()]'
@@ -38,7 +38,6 @@
 <div class="row mt-3 mb-0">
   <div class="flex px-3 items-baseline justify-between">
     <span class="font-semibold text-lg"> All Homes </span>
-    <a href="/homes/"> <span class="text-sm"> View All </span> </a>
   </div>
   <div class="container mx-auto">
     <div class="flex flex-wrap">

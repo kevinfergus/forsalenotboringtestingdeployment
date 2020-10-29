@@ -3,7 +3,7 @@
   import urlBuilder from "@sanity/image-url";
   import HomepageCard from "../../components/HomepageCard.svelte";
   const urlFor = (source) => urlBuilder(client).image(source);
-  export function preload() {
+  export async function preload() {
     return client
       .fetch(
         '*[_type == "listing" && defined(slug.current) && publishedAt < now()]'
