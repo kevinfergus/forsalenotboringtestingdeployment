@@ -9,7 +9,26 @@
       <span class="font-semibold text-xl tracking-tight">FOR SALE NOT BORING</span>
     </a>
   </div>
-  <div class="block">
+    <div class="hidden md:flex items-center">
+        <a
+          href="/homes/chicago/"
+          class="block px-2 inline-block mt-0 text-white">
+          Chicago
+        </a>
+        <a
+          href="/homes/columbus/"
+          class="block px-2 inline-block mt-0 text-white">
+          Columbus
+        </a>
+
+        <a
+          href="/about/"
+          class="block px-2 inline-block mt-0 text-white">
+          About
+        </a>
+    </div>
+
+  <div class="md:hidden block">
     <button
       on:click={child.show}
       class="flex items-center px-3 py-2 border rounded text-white border-white hover:text-white hover:border-white">
