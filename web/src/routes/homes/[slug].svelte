@@ -110,7 +110,7 @@
 <li>410-991-9814</li>
  </ul> 
 </div>
-  <span class="text-lg font-semibold">Best Photos</span>
+  <span class="text-lg font-semibold">Selected Photos</span>
   {#each images as galleryImg}
     <div class="my-3 mx-auto"><img class="mx-auto rounded md:w-11/12" src={urlFor(galleryImg)} alt="alt" /></div>
   {/each}

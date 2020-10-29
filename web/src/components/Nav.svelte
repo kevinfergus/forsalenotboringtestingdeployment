@@ -3,10 +3,10 @@
   let child;
 </script>
 
-<nav class="flex w-full sm:relative items-center justify-between flex-wrap bg-secondary p-4">
+<nav class="flex w-full sm:relative items-center justify-between flex-wrap bg-secondary p-2">
   <div class="flex items-center flex-shrink-0 text-white mr-6">
     <a href="/">
-      <span class="font-semibold text-xl tracking-tight">FOR SALE NOT BORING</span>
+      <span class="font-semibold tracking-normal text-lg md:text-xl tracking-tight">FOR SALE NOT BORING</span>
     </a>
   </div>
     <div class="hidden md:flex items-center">
