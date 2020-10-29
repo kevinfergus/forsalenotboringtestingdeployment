@@ -29,6 +29,12 @@
 <script>
   export let listing;
   export let images = listing.imageGallery;
+  export let price = listing.price;
+        function priceFormat(x) {
+                return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+          };
+  export let formattedPrice = priceFormat(price);
+
 </script>
 
 <style>
@@ -68,7 +74,7 @@
 </div>
 <div class="flex w-full py-4 mb-2 justify-start flex-row">
   <div class="flex flex-col text-center justify-center w-1/4 md:text-2xl sm:w-1/2">
-    <span class="w-full"><strong>${listing.price}</strong></span>
+    <span class="w-full"><strong>${formattedPrice}</strong></span>
     <span class="w-full">price</span>
   </div>
   <div class="flex flex-col text-center justify-center w-1/4 md:text-2xl sm:w-1/2">

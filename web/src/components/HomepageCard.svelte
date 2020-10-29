@@ -7,6 +7,12 @@
 
 <script>
   export let data;
+  export let price = data.price;
+        function priceFormat(x) {
+                return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+          };
+  export let formattedPrice = priceFormat(price);
+
 </script>
 <style>
   img {
@@ -31,7 +37,7 @@
       {data.city}
       •
       {data.beds}bd
-      {data.baths}ba • ${data.price}
+      {data.baths}ba • ${formattedPrice}
     </p>
     <p class="text-lg text-gray-900">
       <BlockContent blocks={data.excerpt} />
