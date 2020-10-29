@@ -60,6 +60,11 @@ export default {
       title: 'Price'
     },
     {
+      name: 'sqft',
+      type: 'number',
+      title: "Square Footage"
+    },
+    {
       name: 'beds',
       type: 'number',
       title: 'Beds'
