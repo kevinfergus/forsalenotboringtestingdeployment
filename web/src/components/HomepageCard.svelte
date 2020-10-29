@@ -10,7 +10,13 @@
 </script>
 <style>
   img {
-    height: 280px;
+    height: 260px;
+  }
+
+  @media only screen and (max-width: 600px) {
+    img {
+      height: 230px;
+    }
   }
 </style>
 

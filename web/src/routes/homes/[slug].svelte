@@ -80,7 +80,11 @@
     <span class="w-full">baths</span>
   </div>
   <div class="flex flex-col text-center justify-center w-1/4 md:text-2xl sm:w-1/2">
+    {#if typeof listing.sqft !== 'undefined'}
     <span class="w-full"><strong>{listing.sqft}</strong></span>
+    {:else}
+    <span class="w-full"><strong>-</strong></span>
+    {/if}
     <span class="w-full">sqft.</span>
   </div>
 </div>
