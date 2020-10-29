@@ -96,7 +96,7 @@ export default {
         subtitle: publishedAt ? path : 'Missing publishing date'
       }
     }
-  }
+  },
   initialValue: {
     dateAdded: (new Date()).toISOString()
   }
