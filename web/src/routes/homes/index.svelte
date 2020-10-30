@@ -3,16 +3,19 @@
   import urlBuilder from "@sanity/image-url";
   import HomepageCard from "../../components/HomepageCard.svelte";
   const urlFor = (source) => urlBuilder(client).image(source);
-  export function preload() {
-    return client
-      .fetch(
-        '*[_type == "listing" && defined(slug.current) && publishedAt < now()]'
-      )
-      .then((listings) => {
-        return { listings };
-      })
-      .catch((err) => this.error(500, err));
-  }
+  export async function preload({ params  }) {
+       try {
+              const res = await this.fetch('api/homes');
+                     const res = await this.fetch('api/homes/all');
+                            const { listings } = await res.json()
+                                   return { listings };
+                                        
+       } catch (err) {
+             this.error(500, err);
+                 
+       }
+         
+  };
 </script>
 
 <script>
