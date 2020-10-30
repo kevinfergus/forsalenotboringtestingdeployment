@@ -16,7 +16,7 @@ export default {
       title: 'Slug',
       description: 'Some frontends will require a slug to be set to be able to show the post',
       options: {
-        source: 'title',
+        source: 'address',
         maxLength: 96
       }
     },
@@ -30,6 +30,12 @@ export default {
       title: 'Date Added',
       name: 'dateAdded',
       type: 'date'
+    },
+    {
+      name: 'mainImage',
+      type: 'mainImage',
+      title: 'Main image'
+
     },
     {
       name: 'imageGallery',
@@ -113,6 +119,7 @@ export default {
     }
   },
   initialValue: {
-    dateAdded: (new Date()).toISOString()
+    dateAdded: (new Date()).toISOString(),
+    publishedAt: (new Date()).toISOString()
   }
 }
