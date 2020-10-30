@@ -9,7 +9,7 @@
     "watch:dev": "sapper dev",
     "build": "run-s build:css build:sapper",
     "build:css": "postcss src/assets/global.pcss -o static/global.css",
-    "build:sapper": "sapper export --legacy",
+    "build:sapper": "sapper build --legacy",
     "build:export": "sapper export --legacy",
     "export": "sapper export --legacy",
     "start": "node __sapper__/build",
