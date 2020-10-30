@@ -6,7 +6,7 @@
 
               *# Create and change to the app directory.*
 
-                  *WORKDIR* /web/src/__sapper__/build
+                  *WORKDIR* /web/
 
                       *# Copy application dependency manifests to the container image.*
 
