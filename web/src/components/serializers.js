@@ -5,8 +5,6 @@ import BlockContent from '@movingbrands/svelte-portable-text';
 import urlBuilder from '@sanity/image-url';
 import client from '../sanityClient';
 import Image from './Image.svelte';
-import Code from './Code.svelte';
-import Author from './Author.svelte';
 import Link from './Link.svelte';
 
 const urlFor = source => urlBuilder(client).image(source);
@@ -29,21 +27,6 @@ export default {
           .auto('format')
           .url(),
         alt: node.alt,
-      },
-    }),
-    code: ({ node: { code, language } }) => ({
-      component: Code,
-      childNodes: [],
-      props: {
-        code,
-        language,
-      },
-    }),
-    authorReference: ({ children, node: { author } }) => ({
-      component: Author,
-      childNodes: children,
-      props: {
-        author,
       },
     }),
   },

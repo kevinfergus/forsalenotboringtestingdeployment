@@ -1,32 +1,22 @@
 <script context="module">
-  import client from "../../sanityClient";
   import urlBuilder from "@sanity/image-url";
-  import BlockContent from "@movingbrands/svelte-portable-text";
   const urlFor = (source) => urlBuilder(client).image(source);
   export async function preload({ params }) {
-    // the `slug` parameter is available because
-    // this file is called [slug].html
-    const { slug } = params;
-    const filter = '*[_type == "listing" && slug.current == $slug][0]';
-    const projection = `{
-      ...,
-      mainImage{
-        ...,
-        asset->
-      },
-      body[]{
-        ...,
-      }
-    }`;
-    const query = filter + projection;
-    const listing = await client
-      .fetch(query, { slug })
-      .catch((err) => this.error(500, err));
-    return { listing };
-  }
+        try {
+               const res = await this.fetch(`api/homes/${params.slug}`);
+                      const { listing } = await res.json();
+                             return { listing };
+                                  
+        } catch (err) {
+               this.error(500, err);
+                    
+        }
+           };
 </script>
 
 <script>
+  import BlockContent from "@movingbrands/svelte-portable-text";
+  import serializers from "../../components/serializers";
   export let listing;
   export let images = listing.imageGallery;
   export let price = listing.price;
