@@ -1,7 +1,5 @@
 <script context="module">
-  import urlBuilder from "@sanity/image-url";
-  const urlFor = (source) => urlBuilder(client).image(source);
-  export async function preload({ params }) {
+    export async function preload({ params }) {
         try {
                const res = await this.fetch(`api/homes/${params.slug}`);
                       const { listing } = await res.json();
@@ -17,6 +15,9 @@
 <script>
   import BlockContent from "@movingbrands/svelte-portable-text";
   import serializers from "../../components/serializers";
+  import urlBuilder from "@sanity/image-url";
+  import client from "../../sanityClient";
+  const urlFor = (source) => urlBuilder(client).image(source);
   export let listing;
   export let images = listing.imageGallery;
   export let price = listing.price;
@@ -95,13 +96,13 @@
 <div class="w-full mt-3 mb-2 mx-auto">
   <span class="text-lg font-semibold">Listing Agent</span>
  <ul>
-<li>John Wernecke</li>
-<li>info@forsalenotboring.com</li>
-<li>410-991-9814</li>
+   <li>{listing.agentName}</li>
+   <li>{listing.agentNumber}</li>
+   <li>{listing.agentEmail}</li>
  </ul> 
 </div>
   <span class="text-lg font-semibold">Selected Photos</span>
-  {#each images as galleryImg}
-    <div class="my-3 mx-auto"><img class="mx-auto rounded md:w-11/12" src={urlFor(galleryImg)} alt="alt" /></div>
-  {/each}
+    {#each images as galleryImg}
+          <div class="my-3 mx-auto"><img class="mx-auto rounded md:w-11/12" src={urlFor(galleryImg)} alt="alt" /></div>
+            {/each}
 </div>

@@ -5,7 +5,6 @@
   const urlFor = (source) => urlBuilder(client).image(source);
 export async function preload({ params  }) {
        try {
-              const res = await this.fetch('api/homes');
                      const res = await this.fetch('api/homes/all');
                             const { listings } = await res.json()
                                    return { listings };

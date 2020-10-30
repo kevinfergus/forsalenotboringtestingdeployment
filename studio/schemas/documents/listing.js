@@ -32,11 +32,6 @@ export default {
       type: 'date'
     },
     {
-      name: 'mainImage',
-      type: 'mainImage',
-      title: 'Main image'
-    },
-    {
       name: 'imageGallery',
       title: 'Image Gallery',
       type: 'array',
@@ -80,9 +75,24 @@ export default {
       title: 'City'
     },
     {
-      name: 'homepageFeatured',
+      name: 'agentName',
+      type: 'string',
+      title: 'Listing Agent'
+    },
+    {
+      name: 'agentNumber',
+      type: 'string',
+      title: 'Agent Phone'
+    },
+    {
+      name: 'agentEmail',
+      type: 'string',
+      title: 'Agent Email'
+    },
+    {
+      name: 'active',
       type: 'boolean',
-      title: 'Featured?'
+      title: 'Active?'
     }
   ],
   preview: {

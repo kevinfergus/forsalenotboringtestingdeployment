@@ -4,20 +4,19 @@ import client from '../../../sanityClient'
      try {
               const { slug  } = req.params;
               const filter = '*[_type == "listing" && slug.current == $slug][0]';
-         const projection = `{
-                ...,
-                       body[]{
-                                ...,
-                                         children[]{
-                                                    ...,
-                                                               }
+              const projection = `{
+                     ...,
+                            mainImage{
+                                     ...,
+                                              asset->
 
-                                         }
+                            },
+                                   body[]{
+                                            ...,
 
-                       }
+                                   }
 
-              }`;
-
+    }`;
               const query = filter + projection;
               const listing = await client.fetch(query, { slug  })
               res.end(JSON.stringify({ listing }));
