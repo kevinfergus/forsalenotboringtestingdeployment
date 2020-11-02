@@ -74,7 +74,7 @@ let showMenu = false;
           on:click={child.show}
           href="/newsletter"
           class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4">
-         Newsletter 
+         Get Our Newsletter 
         </a>
 <a
      on:click={child.show}
