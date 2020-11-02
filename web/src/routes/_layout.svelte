@@ -12,7 +12,7 @@
 		box-sizing: border-box;
 	}
 </style>
-<GoogleAnalytics properties={[ 'G-RD2B2DM0ZD' ]} />
+<GoogleAnalytics properties={[ 'G-MLLNG9V13W' ]} />
 <header class="w-full h-12 fixed sm:relative top-0 right-0 left-0 z-50">
 <Nav/>
 </header>
