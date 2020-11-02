@@ -61,6 +61,11 @@ export default {
       title: 'Price'
     },
     {
+      name: 'neighborhood',
+      type: 'string',
+      title: 'Neighborhood'
+    },
+    {
       name: 'sqft',
       type: 'number',
       title: "Square Footage"

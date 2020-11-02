@@ -19,15 +19,17 @@ export async function preload({ params  }) {
 
 <script>
   export let listings;
-  let today = new Date();
-  let yesterday = new Date();
+    let today = new Date()
+    let yesterday = new Date(today)
+    yesterday.setDate(yesterday.getDate() - 1)
   const td = String(today.getDate()).padStart(2, "0");
-  const yd = String(today.getDate()-1).padStart(2, "0");
-  const mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+  const yd = String(yesterday.getDate()).padStart(2, "0");
+  const tm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+  const ym = String(yesterday.getMonth() + 1).padStart(2, "0"); //January is 0!
   const yyyy = today.getFullYear();
 
-  today = yyyy + "-" + mm + "-" + td;
-  yesterday = yyyy + "-" + mm + "-" + yd;
+  today = yyyy + "-" + tm + "-" + td;
+  yesterday = yyyy + "-" + ym + "-" + yd;
 
   console.log(today);
   export let addedToday = listings.filter(

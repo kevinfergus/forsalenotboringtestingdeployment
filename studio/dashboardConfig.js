@@ -5,12 +5,6 @@ export default {
       options: { title: 'Recent listings', order: '_createdAt desc', types: ['listing'] },
       layout: { width: 'medium' }
     },
-    {
-      name: 'sanity-tutorials',
-      options: {
-        templateRepoId: 'sanity-io/sanity-template-gatsby-blog'
-      }
-    },
     { name: 'structure-menu' },
     {
       name: 'project-info',
@@ -24,14 +18,14 @@ export default {
               sites: [
                 {
                   buildHookId: '5f8746a2ee6a7948f235d84f',
-                  title: 'Sanity Studio',
-                  name: 'sanity-sapper-blog-studio-bytgh8ef',
+                  title: 'CMS',
+                  name: 'fsnb-cms',
                   apiId: '7e6b1aec-5b73-46a6-9844-1abde4f7901c'
                 },
                 {
                   buildHookId: '5f8746a3b7471339d3bfc116',
-                  title: 'Blog Website',
-                  name: 'sanity-sapper-blog-web-cx49edh6',
+                  title: 'Website',
+                  name: 'fsnbv2',
                   apiId: 'ceaacb28-32d5-4cf7-b8ed-94693c89fb29'
                 }
               ]

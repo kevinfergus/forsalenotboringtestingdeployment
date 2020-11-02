@@ -10,6 +10,10 @@ export default () =>
     .title('Content')
     .items([
       S.listItem()
+        .title('Listings')
+        .schemaType('listing')
+        .child(S.documentTypeList('listing').title('Listings')),
+      S.listItem()
         .title('Settings')
         .icon(MdSettings)
         .child(
@@ -18,10 +22,6 @@ export default () =>
             .schemaType('siteSettings')
             .documentId('siteSettings')
         ),
-      S.listItem()
-        .title('Listings')
-        .schemaType('listing')
-        .child(S.documentTypeList('listing').title('Listings')),
 
       // This returns an array of all the document types
       // defined in schema.js. We filter out those that we have
