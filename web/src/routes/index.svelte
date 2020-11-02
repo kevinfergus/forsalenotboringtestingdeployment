@@ -32,10 +32,10 @@ export async function preload({ params  }) {
   yesterday = yyyy + "-" + ym + "-" + yd;
 
   console.log(today);
-  export let addedToday = listings.filter(
+  $: addedToday = listings.filter(
     (listing) => listing.dateAdded === today
   );
-  export let addedYesterday = listings.filter(
+  $: addedYesterday = listings.filter(
     (listing) => listing.dateAdded === yesterday 
   );
   // export let notFeatured = listings.filter(

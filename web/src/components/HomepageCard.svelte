@@ -7,11 +7,11 @@
 
 <script>
   export let data;
-  export let price = data.price;
-        function priceFormat(x) {
+  $: price = data.price;
+  export function priceFormat(x) {
                 return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
           };
-  export let formattedPrice = priceFormat(price);
+  $: formattedPrice = priceFormat(price);
 
 </script>
 <style>

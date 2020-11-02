@@ -54,7 +54,7 @@
   <div class="flex w-full justify-between">
     <div class="md-w-1/2">
   <h1 class="text-xl md:text-3xl font-semibold">{listing.address}</h1>
-  <h3 class="text-md md:text-2xl text-gray-darker">{listing.city}</h3>
+  <h3 class="text-md md:text-2xl text-gray-darker">{listing.city} {#if typeof listing.neighborhood !== 'undefined'}| {listing.neighborhood}{/if}</h3>
     </div>
     <div>
       <div class="bg-success rounded-lg px-2 py-1 md:px-3 md:py-2">

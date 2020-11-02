@@ -1,11 +1,13 @@
 <script context="module">
   import Hidden from "./Hidden.svelte";
   import ClickOutside from 'svelte-click-outside';
+  import { slide  } from 'svelte/transition';
   let child;
 </script>
 <script>
+
 let showDropdown = false;
-let showMenu = false;
+let showMobileMenu = false;
   function toggleDropdown() {
     showDropdown = !showDropdown;
     }
@@ -14,24 +16,31 @@ let showMenu = false;
     }
     let triggerEl;
 
-  function togglePanel() {
-            panelVisible = !panelVisible;
+  function toggleMobileMenu() {
+            showMobileMenu = !showMobileMenu;
     }
 
-  function hidePanel() {
-            panelVisible = false;
+  function hideMobileMenu() {
+            showMobileMenu = false;
     }
+
+function safariWorkaround(node) {
+    if(navigator.appVersion.includes('Safari')) {
+          node.style.overflow = 'hidden';
+              
+    }
+}
 </script>
 
 <nav class="flex w-full sm:relative items-center sm:justify-between flex-wrap bg-secondary p-2">
   <div class="grid px-2 sm:p-0 grid-cols-3 grid-flow-col grid-rows-1 gap-x-2 w-full items-center justify-center text-white sm:mr-6">
     <div class="col-start-2 text-center">
-    <a href="/">
+      <a on:click={hideMobileMenu} href="/">
       <span class="inline sm:hidden text-primary font-extrabold tracking-normal text-2xl text-center ">FSNB</span>
     </a>
     </div>
     <div class="col-start-3 justify-self-end">
-        <div class="dropdown inline-block relative">
+        <div class="dropdown inline-block relative" transition:slide >
           <button bind:this={triggerEl} on:click={toggleDropdown} class="bg-transparent text-primary py-1 px-1 uppercase rounded inline-flex items-center">
                       <span class="text-sm font-bold sm:text-lg mr-1">Browse</span>
                             <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/> </svg>
@@ -52,7 +61,7 @@ let showMenu = false;
     </a>
 
     <button
-      on:click={child.show}
+      on:click={toggleMobileMenu}
       class="md:hidden flex items-center px-3 py-2 border-2 rounded text-primary border-primary hover:text-white hover:border-white">
       <svg
         class="fill-current h-3 w-3"
@@ -60,46 +69,54 @@ let showMenu = false;
         xmlns="http://www.w3.org/2000/svg"><title>Menu</title>
         <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" /></svg>
     </button>
-<Hidden bind:this={child} on:show={(e) => (child.shown = e.detail)}>
+    {#if showMobileMenu}
     <div
+      transition:slide
+      use:safariWorkaround
       id="mobile-menu"
       class="w-full h-auto absolute left-0 right-0 bg-secondary block flex-grow lg:flex lg:items-center lg:w-auto">
       <div class="text-sm px-4 py-2 text-lg text-white lg:flex-grow">
         <a
-          on:click={child.show} href="https://www.instagram.com/forsalenotboring/"
+          on:click={hideMobileMenu} href="https://www.instagram.com/forsalenotboring/"
           class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4">
          Instagram 
         </a>
         <a
-          on:click={child.show}
+          on:click={hideMobileMenu}
           href="/newsletter"
           class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4">
          Get Our Newsletter 
         </a>
 <a
-     on:click={child.show}
+     on:click={hideMobileMenu}
           href="/submit/"
           class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white">
           Submit a Listing
         </a>
 
 <a
-     on:click={child.show}
+     on:click={hideMobileMenu}
+          href="/blog/"
+          class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white">
+         Blog 
+        </a>
+<a
+     on:click={hideMobileMenu}
           href="/about/"
           class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white">
           About
         </a>
 
         <a
-          on:click={child.show}
+          on:click={hideMobileMenu}
           href="/signup"
           class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4">
         Sign Up 
         </a>
               </div>
     </div>
-  </Hidden>
 
+    {/if}
   </div>
       </div>
     

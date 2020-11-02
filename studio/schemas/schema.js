@@ -7,6 +7,7 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 // document schemas
 import siteSettings from './documents/siteSettings'
 import listing from './documents/listing'
+import post from './documents/post'
 // Object types
 import bodyPortableText from './objects/bodyPortableText'
 import bioPortableText from './objects/bioPortableText'
@@ -24,6 +25,7 @@ export default createSchema({
     // in the studio.
     siteSettings,
     listing,
+    post,
     mainImage,
     bodyPortableText,
     bioPortableText,
