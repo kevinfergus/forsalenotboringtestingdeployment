@@ -26,7 +26,6 @@
     "groq": "^0.147.8",
     "polka": "^1.0.0-next.11",
     "sirv": "^1.0.7",
-    "svelte-click-outside": "^1.0.0",
     "svelte-material-icons": "^1.0.3",
     "tailwindcss": "^1.9.6"
   },
@@ -56,6 +55,7 @@
     "rollup-plugin-terser": "^7.0.2",
     "sapper": "^0.28.10",
     "svelte": "^3.29.4",
+    "svelte-click-outside": "^1.0.0",
     "svelte-loader": "^2.13.6",
     "svelte-preprocess": "^4.5.2"
   }
