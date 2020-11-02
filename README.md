@@ -1,3 +1,5 @@
+[![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/wernecke/sanity-sapper-blog)
+
 # FSNB Sapper
 
 _Fully customizable blog template with a Svelte.js front-end._
