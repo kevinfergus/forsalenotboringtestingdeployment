@@ -1,7 +1,8 @@
 <script>
 	import Nav from '../components/Nav.svelte';
 	import Footer from '../components/Footer.svelte';
-	import { GoogleAnalytics } from '@beyonk/svelte-google-analytics'
+	import { stores } from '@sapper/app';
+    import GoogleAnalytics from '../components/GoogleAnalytics.svelte';
 </script>
 
 <style>
@@ -12,7 +13,7 @@
 		box-sizing: border-box;
 	}
 </style>
-<GoogleAnalytics properties={[ 'G-MLLNG9V13W' ]} />
+<GoogleAnalytics />
 <header class="w-full h-12 fixed sm:relative top-0 right-0 left-0 z-50">
 <Nav/>
 </header>
