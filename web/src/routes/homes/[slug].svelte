@@ -93,14 +93,20 @@
   <span class="text-lg font-semibold">Condensed Description</span>
   <BlockContent blocks={listing.body} />
 </div>
+{#if typeof listing.agentName !== 'undefined'}
 <div class="w-full mt-3 mb-2 mx-auto">
   <span class="text-lg font-semibold">Listing Agent</span>
  <ul>
    <li>{listing.agentName}</li>
+    {#if typeof listing.agentNumber !== 'undefined'}
    <li>{listing.agentNumber}</li>
+    {/if}
+    {#if typeof listing.agentEmail !== 'undefined'}
    <li>{listing.agentEmail}</li>
+    {/if}
  </ul> 
 </div>
+{/if}
   <span class="text-lg font-semibold">Selected Photos</span>
     {#each images as galleryImg}
           <div class="my-3 mx-auto"><img class="mx-auto rounded md:w-11/12" src={urlFor(galleryImg)} alt="alt" /></div>

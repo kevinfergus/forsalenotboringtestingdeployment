@@ -1,11 +1,25 @@
 <script context="module">
   import Hidden from "./Hidden.svelte";
+  import ClickOutside from 'svelte-click-outside';
   let child;
 </script>
 <script>
 let showDropdown = false;
-  const toggleDropdown = event => {
+let showMenu = false;
+  function toggleDropdown() {
     showDropdown = !showDropdown;
+    }
+  function hideDropdown() {
+      showDropdown = false;
+    }
+    let triggerEl;
+
+  function togglePanel() {
+            panelVisible = !panelVisible;
+    }
+
+  function hidePanel() {
+            panelVisible = false;
     }
 </script>
 
@@ -18,17 +32,18 @@ let showDropdown = false;
     </div>
     <div class="col-start-3 justify-self-end">
         <div class="dropdown inline-block relative">
-          <button on:click={toggleDropdown} class="bg-transparent text-primary py-1 px-1 uppercase rounded inline-flex items-center">
+          <button bind:this={triggerEl} on:click={toggleDropdown} class="bg-transparent text-primary py-1 px-1 uppercase rounded inline-flex items-center">
                       <span class="text-sm font-bold sm:text-lg mr-1">Browse</span>
                             <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/> </svg>
                                 </button>
-                                {#if showDropdown }
-    <ul class="dropdown-menu bg-secondary absolute text-white pt-1">
-                                            <li class=""><a class="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="/homes/chicago">Chicago</a></li>
-                                                  <li class=""><a class="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="/homes/columbus">Columbus</a></li>
+
+            <ClickOutside on:clickoutside={hideDropdown} exclude={[triggerEl]}>
+              <ul hidden={!showDropdown} class="dropdown-menu bg-secondary absolute text-white pt-1">
+                <li on:click={hideDropdown} class=""><a class="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="/homes/chicago">Chicago</a></li>
+                <li on:click={hideDropdown} class=""><a class="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="/homes/columbus">Columbus</a></li>
                                                             </ul>
 
-                                {/if}
+            </ClickOutside>
                                                                                               </div>
     </div>
 <div class="col-start-1">
@@ -51,28 +66,32 @@ let showDropdown = false;
       class="w-full h-auto absolute left-0 right-0 bg-secondary block flex-grow lg:flex lg:items-center lg:w-auto">
       <div class="text-sm px-4 py-2 text-lg text-white lg:flex-grow">
         <a
-          href="https://www.instagram.com/forsalenotboring/"
+          on:click={child.show} href="https://www.instagram.com/forsalenotboring/"
           class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4">
          Instagram 
         </a>
         <a
+          on:click={child.show}
           href="/newsletter"
           class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4">
          Newsletter 
         </a>
 <a
+     on:click={child.show}
           href="/submit/"
           class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white">
           Submit a Listing
         </a>
 
 <a
+     on:click={child.show}
           href="/about/"
           class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white">
           About
         </a>
 
         <a
+          on:click={child.show}
           href="/signup"
           class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4">
         Sign Up 
