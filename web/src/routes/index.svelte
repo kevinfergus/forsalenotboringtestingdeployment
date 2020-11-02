@@ -3,25 +3,22 @@
   import urlBuilder from "@sanity/image-url";
   import HomepageCard from "../components/HomepageCard.svelte";
   const urlFor = (source) => urlBuilder(client).image(source);
-export async function preload({ params  }) {
-       try {
-                     const res = await this.fetch('api/homes/all');
-                            const { listings } = await res.json()
-                                   return { listings };
-                                        
-       } catch (err) {
-             this.error(500, err);
-                 
-       }
-         
-  };
+  export async function preload({ params }) {
+    try {
+      const res = await this.fetch("api/homes/all");
+      const { listings } = await res.json();
+      return { listings };
+    } catch (err) {
+      this.error(500, err);
+    }
+  }
 </script>
 
 <script>
   export let listings;
-    let today = new Date()
-    let yesterday = new Date(today)
-    yesterday.setDate(yesterday.getDate() - 1)
+  let today = new Date();
+  let yesterday = new Date(today);
+  yesterday.setDate(yesterday.getDate() - 1);
   const td = String(today.getDate()).padStart(2, "0");
   const yd = String(yesterday.getDate()).padStart(2, "0");
   const tm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
@@ -32,11 +29,9 @@ export async function preload({ params  }) {
   yesterday = yyyy + "-" + ym + "-" + yd;
 
   console.log(today);
-  $: addedToday = listings.filter(
-    (listing) => listing.dateAdded === today
-  );
+  $: addedToday = listings.filter((listing) => listing.dateAdded === today);
   $: addedYesterday = listings.filter(
-    (listing) => listing.dateAdded === yesterday 
+    (listing) => listing.dateAdded === yesterday
   );
   // export let notFeatured = listings.filter(
   //   (listing) => listing.homepageFeatured === false
@@ -60,6 +55,7 @@ export async function preload({ params  }) {
   </div>
 </div>
 <div class="row mt-3 mb-0">
+ {#if addedToday.length > 0} 
   <div class="flex px-3 items-baseline justify-between">
     <span class="font-semibold text-lg"> Today </span>
     <a href="/homes/"> <span class="text-sm"> View All </span> </a>
@@ -75,6 +71,7 @@ export async function preload({ params  }) {
       {/each}
     </div>
   </div>
+  {/if}
   <div class="flex mt-1 px-3 items-baseline justify-between">
     <span class="font-semibold text-lg"> Yesterday </span>
     <a href="/homes/"> <span class="text-sm"> View All </span> </a>

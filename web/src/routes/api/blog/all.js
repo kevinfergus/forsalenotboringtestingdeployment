@@ -1,4 +1,3 @@
-
 import client from '../../../sanityClient'
 import urlBuilder from "@sanity/image-url";
 const urlFor = (source) => urlBuilder(client).image(source);
