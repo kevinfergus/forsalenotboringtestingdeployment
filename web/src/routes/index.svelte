@@ -33,9 +33,6 @@
   $: addedYesterday = listings.filter(
     (listing) => listing.dateAdded === yesterday
   );
-  // export let notFeatured = listings.filter(
-  //   (listing) => listing.homepageFeatured === false
-  // );
 </script>
 
 <style>
