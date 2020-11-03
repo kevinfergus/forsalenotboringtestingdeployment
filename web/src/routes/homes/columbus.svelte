@@ -1,9 +1,7 @@
 <script context="module">
-  import urlBuilder from "@sanity/image-url";
+  import { onMount } from 'svelte';
   import { slide  } from 'svelte/transition';
   import HomepageCard from "../../components/HomepageCard.svelte";
-  const urlFor = (source) => urlBuilder(client).image(source);
-  import Hidden from "../../components/Hidden.svelte"
   export async function preload({ params  }) {
        try {
                      const res = await this.fetch('api/homes/columbus');
@@ -40,7 +38,8 @@
   {id: "$700k", value: 700000},
   {id: "$800k", value: 800000},
   {id: "$900k", value: 900000},
-  {id: "$1m+", value: 1000000},
+  {id: "$1m", value: 1000000},
+  {id: "Max Price", value: 2000000},
   ];
 function safariWorkaround(node) {
     if(navigator.appVersion.includes('Safari')) {
@@ -51,22 +50,25 @@ function safariWorkaround(node) {
 </script>
 
 <script>
+  import { minPrice } from '../../stores.js';
+  import { maxPrice } from '../../stores.js';
   export let listings;
-  let maxPrice = 10000000;
-  let minPrice = 0;
   let showFilterBox = false;
   function toggleFilterBox() {
       showFilterBox = !showFilterBox;
       }
-  let filteredListings = listings;
+  let filteredListings = [];
+  onMount(() => {
+        filteredListings = listings.filter(listing => listing.price <= $maxPrice && listing.price >= $minPrice);
+      })
   $: listingCount = filteredListings.length;
   function updatePrice() {
-filteredListings = listings.filter(listing => listing.price <= maxPrice && listing.price >= minPrice);
+filteredListings = listings.filter(listing => listing.price <= $maxPrice && listing.price >= $minPrice);
     showFilterBox = !showFilterBox;
       }
-function resetPrice(filterBox) {
-  maxPrice = 10000000;
-    minPrice = 0;
+function resetPrice() {
+  maxPrice.set(2000000);
+  minPrice.set(0);
     filteredListings = listings;
     showFilterBox = !showFilterBox;
       }
@@ -79,34 +81,24 @@ function resetPrice(filterBox) {
 <svelte:head>
   <title>Homes</title>
 </svelte:head>
-<div class="row">
-  <div class="col">
-    <div class="card text-center py-2 shadow border rounded border-black">
-      <p class="text-black">
-        New to FSNB?
-        <a class="text-secondary" href="/about">Learn More</a>
-      </p>
-    </div>
-  </div>
-</div>
 <div class="row mt-3 mb-0">
   <div class="px-3 font-bold text-xl">
-    <h1>Columbus Homes</h1>
+    <h1>Columbus Listings</h1>
   </div>
   <div class="flex px-3 items-baseline justify-between">
-    <span class="font-semibold text-md md:text-lg"> Showing {listingCount} Listings </span>
+    <span class="font-semibold text-lg"> Showing {listingCount} Homes </span>
     <button class="bg-secondary text-white text-sm md:text-md uppercase py-1 px-2 border border-secondary rounded" on:click={toggleFilterBox}>Filters</button>
     </div>
     {#if showFilterBox}
     <div transition:slide use:safariWorkaround class="bg-primary px-2 py-1">
-      <select class="block mb-2 appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" bind:value={minPrice}>
+      <select class="block mb-2 appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" bind:value={$minPrice}>
         {#each minPrices as p}
                 <option value={p.value}>
                 {p.id}
                               </option>
                                   {/each}
                                     </select>
- <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" bind:value={maxPrice}>
+ <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" bind:value={$maxPrice}>
         {#each maxPrices as p}
                 <option value={p.value}>
                 {p.id}

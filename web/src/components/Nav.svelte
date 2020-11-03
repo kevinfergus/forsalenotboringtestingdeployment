@@ -100,28 +100,9 @@
           <div class="text-sm px-4 py-2 text-lg text-white lg:flex-grow">
             <a
               on:click={hideMobileMenu}
-              href="https://www.instagram.com/forsalenotboring/"
-              class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4">
-              Instagram
-            </a>
-            <a
-              on:click={hideMobileMenu}
               href="/newsletter"
               class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4">
               Get Our Newsletter
-            </a>
-            <a
-              on:click={hideMobileMenu}
-              href="/submit/"
-              class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white">
-              Submit a Listing
-            </a>
-
-            <a
-              on:click={hideMobileMenu}
-              href="/blog/"
-              class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white">
-              Blog
             </a>
             <a
               on:click={hideMobileMenu}

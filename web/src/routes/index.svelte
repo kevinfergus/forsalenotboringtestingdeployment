@@ -45,32 +45,30 @@
   <title>Homes</title>
 </svelte:head>
 <div class="row">
-  <div class="col">
-    <div class="card text-center py-2 shadow border-2 rounded border-black">
-      <p class="font-semibold text-black">
-        First time here?
-        <a class="text-secondary font-semibold" href="/about">Learn More</a>
-      </p>
-    </div>
+  <div class="card text-center py-2 shadow border-2 rounded border-black">
+    <p class="font-semibold text-black">
+      First time here?
+      <a class="text-secondary font-semibold" href="/about">Learn More</a>
+    </p>
   </div>
 </div>
 <div class="row mt-3 mb-0">
- {#if addedToday.length > 0} 
-  <div class="flex px-3 items-baseline justify-between">
-    <span class="font-semibold text-lg"> Today </span>
-    <a href="/homes/"> <span class="text-sm"> View All </span> </a>
-  </div>
-  <div class="container mx-auto">
-    <div class="flex flex-wrap">
-      {#each addedToday as listing}
-        <div class="my-2 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
-          <a rel="prefetch" href="homes/{listing.slug.current}/">
-            <HomepageCard data={listing} />
-          </a>
-        </div>
-      {/each}
+  {#if addedToday.length > 0}
+    <div class="flex px-3 items-baseline justify-between">
+      <span class="font-semibold text-lg"> Today </span>
+      <a href="/homes/"> <span class="text-sm"> View All </span> </a>
     </div>
-  </div>
+    <div class="container mx-auto">
+      <div class="flex flex-wrap">
+        {#each addedToday as listing}
+          <div class="my-2 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
+            <a rel="prefetch" href="homes/{listing.slug.current}/">
+              <HomepageCard data={listing} />
+            </a>
+          </div>
+        {/each}
+      </div>
+    </div>
   {/if}
   <div class="flex mt-1 px-3 items-baseline justify-between">
     <span class="font-semibold text-lg"> Yesterday </span>
