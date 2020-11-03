@@ -26,7 +26,7 @@
   {id: "$800k", value: 800000},
   {id: "$900k", value: 900000},
   {id: "$1m", value: 1000000},
-  ]
+  ];
   let maxPrices = [
   {id: "Max Price", value: 0}, 
   {id: "$100k", value: 100000},
