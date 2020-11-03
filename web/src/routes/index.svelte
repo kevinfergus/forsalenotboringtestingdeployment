@@ -1,4 +1,5 @@
 <script context="module">
+  import { fade } from "svelte/transition";
   import client from "../sanityClient";
   import urlBuilder from "@sanity/image-url";
   import HomepageCard from "../components/HomepageCard.svelte";
@@ -40,7 +41,9 @@
 
 <svelte:head>
   <title>For Sale Not Boring | Curated Real Estate Listings</title>
-  <meta name="description" content="For Sale Not Boring is the fastest way to find a cool home in Chicago, Columbus." />
+  <meta
+    name="description"
+    content="For Sale Not Boring is the fastest way to find a cool home in Chicago, Columbus." />
 </svelte:head>
 <div class="row">
   <div class="card text-center py-2 shadow border-2 rounded border-black">
@@ -86,13 +89,12 @@
 </div>
 <div class="hidden">
   {#each listings as listing}
-          <a rel="prefetch" href="homes/{listing.slug.current}/">
-          </a>
+    <a rel="prefetch" href="homes/{listing.slug.current}/" />
   {/each}
-  <a rel="prefetch" href="/homes/chicago"></a>
-  <a rel="prefetch" href="/homes/columbus"></a>
-  <a rel="prefetch" href="/homes/columbus"></a>
-  <a rel="prefetch" href="/about"></a>
-  <a rel="prefetch" href="/signup"></a>
-  <a rel="prefetch" href="/newsletter"></a>
+  <a rel="prefetch" href="/homes/chicago" />
+  <a rel="prefetch" href="/homes/columbus" />
+  <a rel="prefetch" href="/homes/columbus" />
+  <a rel="prefetch" href="/about" />
+  <a rel="prefetch" href="/signup" />
+  <a rel="prefetch" href="/newsletter" />
 </div>
