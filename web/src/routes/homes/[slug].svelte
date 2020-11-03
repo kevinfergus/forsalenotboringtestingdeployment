@@ -43,7 +43,7 @@
 
 
 <svelte:head>
-  <title>{listing.address}</title>
+  <title>{listing.address} | FSNB</title>
 </svelte:head>
 <div class="container mx-auto">
   <div
@@ -57,9 +57,15 @@
   <h3 class="text-md md:text-2xl text-gray-darker">{listing.city} {#if typeof listing.neighborhood !== 'undefined'}| {listing.neighborhood}{/if}</h3>
     </div>
     <div>
+      {#if listing.active}
       <div class="bg-success rounded-lg px-2 py-1 md:px-3 md:py-2">
    <span class="tracking-wide font-medium md:text-right text-sm md:text-md text-black uppercase">Active</span>
       </div>
+      {:else}
+      <div class="bg-danger rounded-lg px-2 py-1 md:px-3 md:py-2">
+   <span class="tracking-wide font-medium md:text-right text-sm md:text-md text-black uppercase">Inactive</span>
+      </div>
+      {/if}
     </div>
   </div>
 </div>
