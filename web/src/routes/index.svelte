@@ -94,4 +94,5 @@
   <a rel="prefetch" href="/homes/columbus"></a>
   <a rel="prefetch" href="/about"></a>
   <a rel="prefetch" href="/signup"></a>
+  <a rel="prefetch" href="/newsletter"></a>
 </div>
