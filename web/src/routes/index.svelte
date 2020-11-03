@@ -83,3 +83,9 @@
     </div>
   </div>
 </div>
+<div class="hidden">
+  {#each listings as listing}
+          <a rel="prefetch" href="homes/{listing.slug.current}/">
+          </a>
+  {/each}
+</div>
