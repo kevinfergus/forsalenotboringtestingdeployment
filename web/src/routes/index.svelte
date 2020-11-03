@@ -39,7 +39,8 @@
 </style>
 
 <svelte:head>
-  <title>Homes</title>
+  <title>For Sale Not Boring | Curated Real Estate Listings</title>
+  <meta name="description" content="For Sale Not Boring is the fastest way to find a cool home in Chicago, Columbus." />
 </svelte:head>
 <div class="row">
   <div class="card text-center py-2 shadow border-2 rounded border-black">
@@ -88,4 +89,9 @@
           <a rel="prefetch" href="homes/{listing.slug.current}/">
           </a>
   {/each}
+  <a rel="prefetch" href="/homes/chicago"></a>
+  <a rel="prefetch" href="/homes/columbus"></a>
+  <a rel="prefetch" href="/homes/columbus"></a>
+  <a rel="prefetch" href="/about"></a>
+  <a rel="prefetch" href="/signup"</a>
 </div>
