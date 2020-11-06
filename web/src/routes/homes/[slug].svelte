@@ -50,7 +50,7 @@
     class="hero-image w-full mx-auto bg-cover bg-center rounded"
     style="background-image: url({urlFor(listing.mainImage)})"
     alt={listing.address} />
-<div class="w-full mt-3">
+<div class="mx-auto w-full mt-3">
   <div class="flex w-full justify-between">
     <div class="md-w-1/2">
   <h1 class="text-xl md:text-3xl font-semibold">{listing.address}</h1>
@@ -59,11 +59,11 @@
     <div>
       {#if listing.active}
       <div class="bg-success rounded-lg px-2 py-1 md:px-3 md:py-2">
-   <span class="tracking-wide font-medium md:text-right text-sm md:text-md text-black uppercase">Active</span>
+   <span class="tracking-wide font-semibold md:text-right text-sm md:text-md text-black uppercase">Active</span>
       </div>
       {:else}
       <div class="bg-danger rounded-lg px-2 py-1 md:px-3 md:py-2">
-   <span class="tracking-wide font-medium md:text-right text-sm md:text-md text-black uppercase">Inactive</span>
+   <span class="tracking-wide font-semibold md:text-right text-sm md:text-md text-black uppercase">Inactive</span>
       </div>
       {/if}
     </div>
@@ -92,16 +92,20 @@
   </div>
 </div>
 <div class="w-full mx-auto">
-  <span class="text-lg font-semibold">Highlights</span>
+  <span class="text-xl md:text-2xl font-semibold">Highlights</span>
+  <div class="md:text-lg">
   <BlockContent blocks={listing.excerpt} />
+  </div>
 </div>
-<div class="w-full mt-3 mx-auto">
-  <span class="text-lg font-semibold">Condensed Description</span>
+<div class="w-full mt-3 ">
+  <span class="text-xl md:text-2xl font-semibold">Condensed Description</span>
+  <div class="md:text-xl">
   <BlockContent blocks={listing.body} />
+  </div>
 </div>
 {#if typeof listing.agentName !== 'undefined'}
 <div class="w-full mt-3 mb-2 mx-auto">
-  <span class="text-lg font-semibold">Listing Agent</span>
+  <span class="text-xl md:text-2xl font-semibold">Listing Agent</span>
  <ul>
    <li>{listing.agentName}</li>
     {#if typeof listing.agentNumber !== 'undefined'}
@@ -113,8 +117,8 @@
  </ul> 
 </div>
 {/if}
-  <span class="text-lg font-semibold">Selected Photos</span>
+  <span class="text-xl md:text-2xl font-semibold">Selected Photos</span>
     {#each images as galleryImg}
-          <div class="my-3 mx-auto"><img class="mx-auto rounded md:w-11/12" src={urlFor(galleryImg)} alt="alt" /></div>
+          <div class="my-3 mx-auto"><img class="mx-auto rounded" src={urlFor(galleryImg)} alt="alt" /></div>
             {/each}
 </div>

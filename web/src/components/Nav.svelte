@@ -59,16 +59,16 @@
         <ClickOutside on:clickoutside={hideDropdown} exclude={[triggerEl]}>
           <ul
             hidden={!showDropdown}
-            class="dropdown-menu bg-secondary absolute text-white pt-1">
+            class="dropdown-menu right-0 rounded uppercase bg-secondary absolute text-white pt-1">
             <li on:click={hideDropdown} class="">
               <a
-                class="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
-                href="/homes/chicago">Chicago</a>
+                class="bg-gray-200 text-sm sm:text-lg hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
+                href="/homes/chicago">💨 Chicago</a>
             </li>
             <li on:click={hideDropdown} class="">
               <a
-                class="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
-                href="/homes/columbus">Columbus</a>
+                class="bg-gray-200 text-sm sm:text-lg hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
+                href="/homes/columbus">🏈 Columbus</a>
             </li>
           </ul>
         </ClickOutside>
