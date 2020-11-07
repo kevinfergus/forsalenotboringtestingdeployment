@@ -11,3 +11,5 @@
 
 # Local Netlify folder
 .netlify
+
+/studio/scraper

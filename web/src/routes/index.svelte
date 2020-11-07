@@ -30,10 +30,13 @@
   yesterday = yyyy + "-" + ym + "-" + yd;
 
   console.log(today);
-  $: addedToday = listings.filter((listing) => listing.dateAdded === today);
-  $: addedYesterday = listings.filter(
+  $: activeListings = listings.filter((listing) => listing.active === true);
+  $: addedToday = activeListings.filter((listing) => listing.dateAdded === today);
+  $: addedYesterday = activeListings.filter(
     (listing) => listing.dateAdded === yesterday
   );
+  $: recentListings = activeListings.slice(0, 9);
+  
 </script>
 
 <style>
@@ -71,6 +74,7 @@
       </div>
     </div>
   {/if}
+  {#if addedYesterday.length > 0}
   <div class="flex mt-1 px-3 items-baseline justify-between">
     <span class="font-semibold text-lg"> Yesterday </span>
     <a href="/homes/"> <span class="text-sm"> View All </span> </a>
@@ -86,6 +90,25 @@
       {/each}
     </div>
   </div>
+  {/if}
+  
+  {#if addedToday.length < 1 && addedYesterday < 1}
+  <div class="flex mt-1 px-3 items-baseline justify-between">
+    <span class="font-semibold text-lg"> Recently Added </span>
+    <a href="/homes/"> <span class="text-sm"> View All </span> </a>
+  </div>
+  <div class="container mx-auto">
+    <div class="flex flex-wrap">
+      {#each recentListings  as listing}
+        <div class="my-2 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
+          <a rel="prefetch" href="homes/{listing.slug.current}/">
+            <HomepageCard data={listing} />
+          </a>
+        </div>
+        {/each}
+        </div>
+        </div>
+  {/if}
 </div>
 <div class="hidden">
   {#each listings as listing}
