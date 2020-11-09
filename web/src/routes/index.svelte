@@ -46,7 +46,7 @@
   <title>For Sale Not Boring | Curated Real Estate Listings</title>
   <meta
     name="description"
-    content="For Sale Not Boring is the fastest way to find a cool home in Chicago, Columbus." />
+    content="For Sale Not Boring is the fastest way to find a cool home in Chicago and Columbus." />
 </svelte:head>
 <div class="row">
   <div class="card text-center py-2 shadow border-2 rounded border-black">

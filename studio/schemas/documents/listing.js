@@ -56,6 +56,11 @@ export default {
       title: 'Body'
     },
     {
+      name: 'redfinLink',
+      type: 'url',
+      title: 'Redfin Link'
+    },
+    {
       name: 'price',
       type: 'number',
       title: 'Price'
@@ -105,6 +110,22 @@ export default {
       type: 'boolean',
       title: 'Active?'
     }
+  ],
+  orderings: [
+    {
+      title: 'Release Date, New',
+      name: 'dateDesc',
+      by: [
+        {field: 'publishedAt', direction: 'desc'}
+      ]
+    },
+    {
+      title: 'Release Date, Old',
+      name: 'dateAsc',
+      by: [
+        {field: 'publishedAt', direction: 'asc'}
+      ]
+    },
   ],
   preview: {
     select: {
