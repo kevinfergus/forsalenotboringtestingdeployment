@@ -112,12 +112,11 @@
 </div>
 <div class="hidden">
   {#each listings as listing}
-    <a rel="prefetch" href="homes/{listing.slug.current}/" />
+    <a href="homes/{listing.slug.current}/" />
   {/each}
-  <a rel="prefetch" href="/homes/chicago" />
-  <a rel="prefetch" href="/homes/columbus" />
-  <a rel="prefetch" href="/homes/columbus" />
-  <a rel="prefetch" href="/about" />
-  <a rel="prefetch" href="/signup" />
-  <a rel="prefetch" href="/newsletter" />
+  <a href="/homes/chicago" />
+  <a href="/homes/columbus" />
+  <a href="/about" />
+  <a href="/signup" />
+  <a href="/newsletter" />
 </div>

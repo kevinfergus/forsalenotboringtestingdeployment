@@ -11,31 +11,19 @@ export default {
       description: 'Titles should be catchy, descriptive, and not too long'
     },
     {
-      name: 'slug',
-      type: 'slug',
-      title: 'Slug',
-      description: 'Some frontends will require a slug to be set to be able to show the post',
-      options: {
-        source: 'address',
-        maxLength: 96
-      }
+      name: 'active',
+      type: 'boolean',
+      title: 'Active?'
     },
     {
-      name: 'publishedAt',
-      type: 'datetime',
-      title: 'Published at',
-      description: 'This can be used to schedule post for publishing'
-    },
-    {
-      title: 'Date Added',
-      name: 'dateAdded',
-      type: 'date'
+      name: 'redfinLink',
+      type: 'url',
+      title: 'Redfin Link'
     },
     {
       name: 'mainImage',
       type: 'mainImage',
       title: 'Main image'
-
     },
     {
       name: 'imageGallery',
@@ -56,11 +44,6 @@ export default {
       title: 'Body'
     },
     {
-      name: 'redfinLink',
-      type: 'url',
-      title: 'Redfin Link'
-    },
-    {
       name: 'price',
       type: 'number',
       title: 'Price'
@@ -73,7 +56,7 @@ export default {
     {
       name: 'sqft',
       type: 'number',
-      title: "Square Footage"
+      title: 'Square Footage'
     },
     {
       name: 'beds',
@@ -106,26 +89,38 @@ export default {
       title: 'Agent Email'
     },
     {
-      name: 'active',
-      type: 'boolean',
-      title: 'Active?'
+      name: 'slug',
+      type: 'slug',
+      title: 'Slug',
+      description: 'Some frontends will require a slug to be set to be able to show the post',
+      options: {
+        source: 'address',
+        maxLength: 96
+      }
+    },
+    {
+      name: 'publishedAt',
+      type: 'datetime',
+      title: 'Published at',
+      description: 'This can be used to schedule post for publishing'
+    },
+    {
+      title: 'Date Added',
+      name: 'dateAdded',
+      type: 'date'
     }
   ],
   orderings: [
     {
       title: 'Release Date, New',
       name: 'dateDesc',
-      by: [
-        {field: 'publishedAt', direction: 'desc'}
-      ]
+      by: [{ field: 'publishedAt', direction: 'desc' }]
     },
     {
       title: 'Release Date, Old',
       name: 'dateAsc',
-      by: [
-        {field: 'publishedAt', direction: 'asc'}
-      ]
-    },
+      by: [{ field: 'publishedAt', direction: 'asc' }]
+    }
   ],
   preview: {
     select: {
@@ -145,7 +140,7 @@ export default {
     }
   },
   initialValue: {
-    dateAdded: (new Date()).toISOString(),
-    publishedAt: (new Date()).toISOString()
+    dateAdded: new Date().toISOString(),
+    publishedAt: new Date().toISOString()
   }
 }
