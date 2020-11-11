@@ -31,12 +31,13 @@
 
   console.log(today);
   $: activeListings = listings.filter((listing) => listing.active === true);
-  $: addedToday = activeListings.filter((listing) => listing.dateAdded === today);
+  $: addedToday = activeListings.filter(
+    (listing) => listing.dateAdded === today
+  );
   $: addedYesterday = activeListings.filter(
     (listing) => listing.dateAdded === yesterday
   );
   $: recentListings = activeListings.slice(0, 9);
-  
 </script>
 
 <style>
@@ -57,7 +58,23 @@
   </div>
 </div>
 <div class="row mt-3 mb-0">
-  {#if addedToday.length > 0}
+  {#if addedToday.length < 1 || addedYesterday.length < 1}
+    <div class="flex mt-1 px-3 items-baseline justify-between">
+      <span class="font-semibold text-lg"> Recently Added </span>
+      <a href="/homes/"> <span class="text-sm"> View All </span> </a>
+    </div>
+    <div class="container mx-auto">
+      <div class="flex flex-wrap">
+        {#each recentListings as listing}
+          <div class="my-2 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
+            <a rel="prefetch" href="homes/{listing.slug.current}/">
+              <HomepageCard data={listing} />
+            </a>
+          </div>
+        {/each}
+      </div>
+    </div>
+  {:else}
     <div class="flex px-3 items-baseline justify-between">
       <span class="font-semibold text-lg"> Today </span>
       <a href="/homes/"> <span class="text-sm"> View All </span> </a>
@@ -73,47 +90,25 @@
         {/each}
       </div>
     </div>
-  {/if}
-  {#if addedYesterday.length > 0}
-  <div class="flex mt-1 px-3 items-baseline justify-between">
-    <span class="font-semibold text-lg"> Yesterday </span>
-    <a href="/homes/"> <span class="text-sm"> View All </span> </a>
-  </div>
-  <div class="container mx-auto">
-    <div class="flex flex-wrap">
-      {#each addedYesterday as listing}
-        <div class="my-2 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
-          <a rel="prefetch" href="homes/{listing.slug.current}/">
-            <HomepageCard data={listing} />
-          </a>
-        </div>
-      {/each}
+    <div class="flex mt-1 px-3 items-baseline justify-between">
+      <span class="font-semibold text-lg"> Yesterday </span>
+      <a href="/homes/"> <span class="text-sm"> View All </span> </a>
     </div>
-  </div>
-  {/if}
-  
-  {#if addedToday.length < 1 && addedYesterday < 1}
-  <div class="flex mt-1 px-3 items-baseline justify-between">
-    <span class="font-semibold text-lg"> Recently Added </span>
-    <a href="/homes/"> <span class="text-sm"> View All </span> </a>
-  </div>
-  <div class="container mx-auto">
-    <div class="flex flex-wrap">
-      {#each recentListings  as listing}
-        <div class="my-2 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
-          <a rel="prefetch" href="homes/{listing.slug.current}/">
-            <HomepageCard data={listing} />
-          </a>
-        </div>
+    <div class="container mx-auto">
+      <div class="flex flex-wrap">
+        {#each addedYesterday as listing}
+          <div class="my-2 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
+            <a rel="prefetch" href="homes/{listing.slug.current}/">
+              <HomepageCard data={listing} />
+            </a>
+          </div>
         {/each}
-        </div>
-        </div>
+      </div>
+    </div>
   {/if}
 </div>
 <div class="hidden">
-  {#each listings as listing}
-    <a href="homes/{listing.slug.current}/" />
-  {/each}
+  {#each listings as listing}<a href="homes/{listing.slug.current}/" />{/each}
   <a href="/homes/chicago" />
   <a href="/homes/columbus" />
   <a href="/about" />
