@@ -5,7 +5,7 @@ const { projectId, dataset } = api
 const client = sanityClient({
   projectId,
   dataset,
-  useCdn: false
+  useCdn: true
 })
 
 export default client
