@@ -14,6 +14,7 @@
 
 <script>
   import BlockContent from "@movingbrands/svelte-portable-text";
+  import serializers from "../../components/serializers";
   import urlBuilder from "@sanity/image-url";
   import client from "../../sanityClient";
   const urlFor = (source) => urlBuilder(client).image(source);
@@ -91,21 +92,21 @@
   </div>
 </div>
 <div class="w-full mx-auto">
-  <span class="text-xl md:text-2xl font-semibold">Highlights</span>
-  <div class="md:text-lg">
+  <span class="text-xl md:text-2xl font-semibold">Highlight</span>
+  <div class="md:text-xl">
   <BlockContent blocks={listing.excerpt} />
   </div>
 </div>
 <div class="w-full mt-3 ">
-  <span class="text-xl md:text-2xl font-semibold">Condensed Description</span>
+  <span class="text-xl md:text-2xl font-semibold">Notes</span>
   <div class="md:text-xl">
-  <BlockContent blocks={listing.body} />
+  <BlockContent blocks={listing.body} {serializers}/>
   </div>
 </div>
 {#if typeof listing.agentName !== 'undefined'}
 <div class="w-full mt-3 mb-2 mx-auto">
   <span class="text-xl md:text-2xl font-semibold">Listing Agent</span>
- <ul>
+ <ul class="md:text-xl">
    <li>{listing.agentName}</li>
     {#if typeof listing.agentNumber !== 'undefined'}
    <li>{listing.agentNumber}</li>
