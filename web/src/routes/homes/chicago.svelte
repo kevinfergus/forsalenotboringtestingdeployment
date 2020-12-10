@@ -1,7 +1,7 @@
 <script context="module">
   import { onMount } from 'svelte';
   import { slide  } from 'svelte/transition';
-  import HomepageCard from "../../components/HomepageCard.svelte";
+  import CityCard from "../../components/CityCard.svelte";
   export async function preload({ params  }) {
        try {
                      const res = await this.fetch('api/homes/chicago');
@@ -120,7 +120,7 @@ function resetPrice() {
       {#each filteredListings as listing}
         <div class="my-2 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
           <a rel="prefetch" href="homes/{listing.slug.current}/">
-            <HomepageCard data={listing} />
+            <CityCard data={listing} />
           </a>
         </div>
       {/each}
