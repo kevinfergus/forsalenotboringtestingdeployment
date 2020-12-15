@@ -4,7 +4,7 @@
   import HomepageCard from "../../components/HomepageCard.svelte";
   export async function preload({ params }) {
     try {
-      const res = await this.fetch("api/homes/all");
+      const res = await this.fetch("api/homes/active");
       const { listings } = await res.json();
       return { listings };
     } catch (err) {
