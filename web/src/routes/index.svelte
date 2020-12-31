@@ -1,5 +1,5 @@
 <script context="module">
-  import { fade } from "svelte/transition";
+  // import { fade } from "svelte/transition";
   import client from "../sanityClient";
   import urlBuilder from "@sanity/image-url";
   import HomepageCard from "../components/HomepageCard.svelte";

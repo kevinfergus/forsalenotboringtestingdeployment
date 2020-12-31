@@ -49,8 +49,7 @@
   <div
     class="hero-image w-full mx-auto bg-cover bg-center rounded"
     style="background-image: url({urlFor(listing.mainImage)})"
-    alt={listing.address} />
-<div class="mx-auto w-full mt-3">
+    alt={listing.address} /><div class="mx-auto w-full mt-3 px-3">
   <div class="flex w-full justify-between">
     <div class="md-w-1/2">
   <h1 class="text-xl md:text-3xl font-semibold">{listing.address}</h1>
@@ -91,20 +90,20 @@
     <span class="w-full">sqft.</span>
   </div>
 </div>
-<div class="w-full mx-auto">
+<div class="w-full mx-auto px-3">
   <span class="text-xl md:text-2xl font-semibold">Highlight</span>
   <div class="md:text-xl">
   <BlockContent blocks={listing.excerpt} />
   </div>
 </div>
-<div class="w-full mt-3 ">
+<div class="w-full mt-3 px-3">
   <span class="text-xl md:text-2xl font-semibold">Notes</span>
   <div class="md:text-xl">
   <BlockContent blocks={listing.body} {serializers}/>
   </div>
 </div>
 {#if typeof listing.agentName !== 'undefined'}
-<div class="w-full mt-3 mb-2 mx-auto">
+<div class="w-full mt-3 mb-2 mx-auto px-3">
   <span class="text-xl md:text-2xl font-semibold">Listing Agent</span>
  <ul class="md:text-xl">
    <li>{listing.agentName}</li>
@@ -117,8 +116,8 @@
  </ul> 
 </div>
 {/if}
-  <span class="text-xl md:text-2xl font-semibold">Selected Photos</span>
+  <span class="text-xl md:text-2xl font-semibold px-3">Selected Photos</span>
     {#each images as galleryImg}
-          <div class="my-3 mx-auto"><img class="mx-auto rounded" src={urlFor(galleryImg)} alt="alt" /></div>
+          <div class="my-3 mx-auto"><img class="mx-auto rounded" src="{urlFor(galleryImg)}?q=75" alt="alt" /></div>
             {/each}
 </div>
