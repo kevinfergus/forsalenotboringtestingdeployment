@@ -30,7 +30,7 @@
   <img
     alt={data.address}
     class="block w-full object-cover"
-    src="{urlFor(data.mainImage)}?q=70" />
+    src="{urlFor(data.mainImage)}?auto=format" />
   <div class="py-2 px-4 bg-white">
     <p class="text-gray-600 text-sm font-normal">{data.address}</p>
     <p class="uppercase tracking-wide text-sm md:text-xs font-normal text-gray-600">

@@ -118,6 +118,6 @@
 {/if}
   <span class="text-xl md:text-2xl font-semibold px-3">Selected Photos</span>
     {#each images as galleryImg}
-          <div class="my-3 mx-auto"><img class="mx-auto rounded" src="{urlFor(galleryImg)}?q=75" alt="alt" /></div>
+          <div class="my-3 mx-auto"><img class="mx-auto rounded" src="{urlFor(galleryImg)}?auto=format" alt="alt" /></div>
             {/each}
 </div>
