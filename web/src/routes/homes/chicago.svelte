@@ -87,7 +87,7 @@ function resetPrice() {
   </div>
   <div class="flex px-3 items-baseline justify-between">
     <span class="font-semibold text-lg"> Showing {listingCount} Homes </span>
-    <button class="bg-secondary text-white text-sm md:text-md uppercase py-1 px-2 border border-secondary rounded" on:click={toggleFilterBox}>Filters</button>
+    <button class="hover:bg-opacity-75 bg-secondary text-white text-sm md:text-md uppercase py-1 px-2 border border-secondary rounded" on:click={toggleFilterBox}>Filters</button>
     </div>
     {#if showFilterBox}
     <div transition:slide use:safariWorkaround class="bg-primary px-2 py-1">
@@ -118,7 +118,7 @@ function resetPrice() {
   <div class="container mx-auto">
     <div class="flex flex-wrap">
       {#each filteredListings as listing}
-        <div class="my-2 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
+        <div class="my-2 px-1 w-full md:w-1/2 lg:my-4 lg:px-3 lg:w-1/3">
           <a sapper:prefetch href="homes/{listing.slug.current}/">
             <CityCard data={listing} />
           </a>

@@ -118,7 +118,7 @@ function resetPrice() {
   <div class="container mx-auto">
     <div class="flex flex-wrap">
       {#each filteredListings as listing}
-        <div class="my-2 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
+        <div class="my-2 px-1 w-full md:w-1/2 lg:my-4 lg:px-3 lg:w-1/3">
           <a sapper:prefetch href="homes/{listing.slug.current}/">
             <CityCard data={listing} />
           </a>

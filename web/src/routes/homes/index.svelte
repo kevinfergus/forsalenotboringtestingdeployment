@@ -84,7 +84,7 @@
   <div class="px-3 font-bold text-xl">
     <h1>All Listings</h1>
   </div>
-  <div class="flex px-3 items-baseline justify-between">
+  <div class="flex px-3 items-baseline">
     <span class="font-semibold text-lg"> Showing {listingCount} Homes </span>
     <button
       class="bg-secondary text-white text-sm md:text-md uppercase py-1 px-2 border border-secondary rounded"
