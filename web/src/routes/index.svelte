@@ -67,7 +67,7 @@
       <div class="flex flex-wrap">
         {#each recentListings as listing}
           <div class="my-2 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
-            <a rel="prefetch" href="homes/{listing.slug.current}/">
+            <a sapper:prefetch href="homes/{listing.slug.current}/">
               <HomepageCard data={listing} />
             </a>
           </div>
@@ -83,7 +83,7 @@
       <div class="flex flex-wrap">
         {#each addedToday as listing}
           <div class="my-2 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
-            <a rel="prefetch" href="homes/{listing.slug.current}/">
+            <a sapper:prefetch href="homes/{listing.slug.current}/">
               <HomepageCard data={listing} />
             </a>
           </div>
@@ -98,7 +98,7 @@
       <div class="flex flex-wrap">
         {#each addedYesterday as listing}
           <div class="my-2 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
-            <a rel="prefetch" href="homes/{listing.slug.current}/">
+            <a sapper:prefetch href="homes/{listing.slug.current}/">
               <HomepageCard data={listing} />
             </a>
           </div>
