@@ -46,7 +46,7 @@
       </a>
     </div>
     <div class="col-start-3 justify-self-end">
-      <div class="inline-block relative hover:text-white active:text-white bg-transparent text-primary">
+      <div class="hidden md:inline-block relative hover:text-white active:text-white bg-transparent text-primary">
         <a class="text-base font-semibold sm:text-lg mr-1"href="/about">About</a>
       </div>
       <div class="dropdown inline-block relative" transition:slide>
