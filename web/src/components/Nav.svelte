@@ -87,7 +87,7 @@
       </div>
     </div>
     <div class="col-start-1">
-      <div class="px-3">
+      <div class="px-2">
         <a href="/">
           <span
             class="hover:text-opacity-75 hidden sm:block font-bold tracking-normal text-lg md:text-2xl text-secondary"
