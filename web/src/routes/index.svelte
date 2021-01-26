@@ -49,7 +49,7 @@
 </svelte:head>
 <div class="row">
   <div
-    class="card text-center py-2 lg:mx-3 shadow border-2 rounded border-black"
+    class="card text-center py-2 lg:mx-3 shadow border-1 rounded border-black bg-gray-lightest"
   >
     <p class="font-semibold text-black">
       First time here?
