@@ -60,8 +60,8 @@
 <div class="row mt-3 mb-0">
   {#if addedToday.length < 1 || addedYesterday.length < 1}
     <div class="flex mt-1 items-baseline justify-between lg:px-3">
-      <span class="font-semibold text-lg"> Recently Added </span>
-      <a class="hover:text-opacity-75 text-black" href="/homes/"> <span class="p-2 font-semibold text-sm lg:text-base"> View All </span> </a>
+      <span class="font-semibold text-xl"> Recently Added </span>
+      <a class="hover:text-opacity-75 text-secondary" href="/homes/"> <span class="p-2 font-semibold text-sm lg:text-base"> View All </span> </a>
     </div>
     <div class="container mx-auto">
       <div class="flex flex-wrap justify-between">
@@ -77,7 +77,7 @@
   {:else}
     <div class="flex mt-1 items-baseline justify-between lg:px-3">
       <span class="font-semibold text-lg"> Today </span>
-      <a class="hover:text-opacity-75 text-black" href="/homes/"> <span class="p-2 font-semibold text-sm lg:text-base"> View All </span> </a>
+      <a class="hover:text-opacity-75 text-secondary" href="/homes/"> <span class="p-2 font-semibold text-sm lg:text-base"> View All </span> </a>
     </div>
     <div class="container mx-auto">
       <div class="flex flex-wrap justify-between">

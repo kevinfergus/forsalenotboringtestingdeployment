@@ -32,29 +32,29 @@
 </script>
 
 <nav
-  class="flex w-full sm:relative items-center sm:justify-between flex-wrap bg-secondary p-2"
+  class="flex w-full sm:relative items-center sm:justify-between flex-wrap bg-primary p-2"
 >
   <div
-    class="grid max-w-screen-lg lg:px-3 sm:p-0 grid-cols-3 grid-flow-col grid-rows-1 gap-x-2 w-full items-center justify-center text-white mx-auto"
+    class="grid max-w-screen-lg lg:px-3 sm:p-0 grid-cols-3 grid-flow-col grid-rows-1 gap-x-2 w-full items-center justify-center text-secondary mx-auto"
   >
     <div class="col-start-2 text-center">
       <a on:click={hideMobileMenu} href="/">
         <span
-          class="inline sm:hidden text-primary font-extrabold tracking-normal text-2xl text-center "
+          class="inline sm:hidden text-secondary font-extrabold tracking-normal text-2xl text-center "
           >FSNB</span
         >
       </a>
     </div>
     <div class="col-start-3 justify-self-end">
-      <div class="hidden md:inline-block relative hover:text-white active:text-white bg-transparent text-primary">
+      <div class="hidden md:inline-block relative hover:text-opacity-75 active:text-white bg-transparent text-secondary">
         <a class="text-base font-semibold sm:text-lg mr-1"href="/about">About</a>
       </div>
       <div class="dropdown inline-block relative" transition:slide>
         <button
           bind:this={triggerEl}
           on:click={toggleDropdown}
-          class="focus:outline-none hover:text-white active:text-white bg-transparent text-primary py-1 px-1 rounded inline-flex items-center">
-          <span class="text-base font-semibold sm:text-lg mr-1 ">Browse</span>
+          class="focus:outline-none font-semibold hover:text-opacity-75 active:text-white text-secondary py-1 px-1 inline-flex items-center">
+          <span class=" sm:text-lg mr-1">Browse</span>
           <svg
             class="fill-current h-4 w-4"
             xmlns="http://www.w3.org/2000/svg"
@@ -90,14 +90,14 @@
       <div class="px-3">
         <a href="/">
           <span
-            class="hover:text-white hidden sm:block font-semibold tracking-normal text-lg md:text-xl text-primary"
+            class="hover:text-opacity-75 hidden sm:block font-bold tracking-normal text-lg md:text-2xl text-secondary"
             >FOR SALE NOT BORING</span
           >
         </a>
       </div>
       <button
         on:click={toggleMobileMenu}
-        class="md:hidden flex items-center px-3 py-2 border-2 rounded text-primary border-primary hover:text-white hover:border-white">
+        class="md:hidden flex items-center px-3 py-2 border-2 rounded text-secondary border-secondary">
         <svg
           class="fill-current h-3 w-3"
           viewBox="0 0 20 20"
@@ -111,26 +111,26 @@
           transition:slide
           use:safariWorkaround
           id="mobile-menu"
-          class="w-full h-auto absolute left-0 right-0 bg-secondary block flex-grow lg:flex lg:items-center lg:w-auto"
+          class="w-full h-auto absolute left-0 right-0 bg-primary block flex-grow lg:flex lg:items-center lg:w-auto"
         >
-          <div class="text-sm px-4 py-2 text-lg text-white lg:flex-grow">
+          <div class="px-4 py-2 text-lg text-secondary font-medium lg:flex-grow">
             <a
               on:click={hideMobileMenu}
               href="/newsletter"
-              class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4">
+              class="block mt-4 lg:inline-block lg:mt-0 text-secondary mr-4">
               Weekly Newsletter
             </a>
             <a
               on:click={hideMobileMenu}
               href="/about/"
-              class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white">
+              class="block mt-4 lg:inline-block lg:mt-0 text-secondary hover:text-secondary">
               About
             </a>
 
             <a
               on:click={hideMobileMenu}
               href="/signup"
-              class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4">
+              class="block mt-4 lg:inline-block lg:mt-0 text-secondary mr-4">
               Sign Up
             </a>
           </div>

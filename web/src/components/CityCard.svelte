@@ -26,18 +26,18 @@
   }
 </style>
 
-<div class="bg-white shadow-xl rounded-lg overflow-hidden">
+<div class="bg-white shadow-lg rounded-lg overflow-hidden">
   <img
     alt={data.address}
     class="block w-full object-cover"
     src="{urlFor(data.mainImage)}?auto=format" />
-  <div class="py-2 px-4 bg-white">
+  <div class="py-2 px-4 bg-gray-lightest">
     <p class="text-gray-600 text-sm font-normal">{data.address}</p>
-    <p class="uppercase tracking-wide text-sm md:text-xs font-normal text-gray-600">
+    <p class="tracking-wide text-sm font-normal text-gray-600">
       {data.neighborhood}
       •
-      {data.beds}bd
-      {data.baths}ba • ${formattedPrice}
+      {data.beds}BD
+      {data.baths}BA • ${formattedPrice}
     </p>
     <p class="text-lg text-gray-900">
       <BlockContent blocks={data.excerpt} />
